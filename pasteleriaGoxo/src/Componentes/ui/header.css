@@ -1,0 +1,108 @@
+.navbar-main {
+    background-color: #9fa6ab; /* Fondo oscuro pero suave */
+    padding: 10px 0;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  .navbar-brand .logo-img {
+    width: 40px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  
+  .nav-link {
+    color: #fff;
+    margin-right: 15px;
+    font-weight: 200;
+    text-decoration: none;
+  }
+  
+  .nav-link:hover {
+    color:#f1ffa4; /* Color dorado en hover */
+  }
+  
+  .cart-btn {
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 25px;
+    font-size: 1.2rem;
+  }
+  
+  .cart-btn:hover {
+    background-color: #f1ffa4;
+    border-color: #f1ffa4;
+    color: #000;
+  }
+  
+  /* Estilos de la segunda parte (hero) */
+  .hero-section {
+    background-color: #f0e6f6; /* Fondo pastel */
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #6c757d;
+  }
+  
+  .slogan {
+    font-size: 0.7rem;
+    font-weight: 300;
+    color: #6c757d;
+  }
+  /* Ajustes en la cabecera */
+.navbar-main {
+    background-color: #6c757d;
+    padding: 5px 0; /* Reducimos el padding */
+  }
+  
+  .navbar-brand {
+    font-size: 1.2rem; /* Tamaño más compacto */
+  }
+  
+  .navbar-brand .logo-img {
+    width: 35px; /* Reducimos el logo */
+    height: 35px;
+    margin-right: 8px;
+  }
+  
+  .nav-link {
+    font-size: 0.8rem; /* Hacemos los enlaces más compactos */
+    margin-right: 10px;
+  }
+  
+  .cart-btn {
+    font-size: 1rem; /* Tamaño más pequeño */
+    padding: 4px 10px;
+  }
+  
+  .hero-title {
+    font-size: 2rem; /* Un poco más pequeño */
+  }
+  
+  .slogan {
+    font-size: 1rem;
+  }
+  
+  /* Ajustes en el Footer */
+  .footer {
+    padding: 20px 10px; /* Reducimos padding */
+  }
+  
+
+  .footer-section p, .footer-link {
+    font-size: 0.8rem;
+  }
+  
+  .social-icon {
+    font-size: 1.2rem; /* Reducimos el tamaño de los íconos */
+  }
+  

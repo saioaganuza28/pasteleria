@@ -1,33 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+// import { useState } from 'react'
 import './App.css'
+import { Navbar, Container, Row, Nav, Button, Badge } from 'react-bootstrap';
+import Producto from './Componentes/Producto';
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import Header from './Componentes/ui/Header';
+import Footer from './Componentes/ui/Footer';
+import Home from './Pages/Home';
+import Productos from './Pages/Productos';
+import { Route, Routes } from 'react-router'
+import AutContext from '../store/AutContext';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [productosFirebase, setproductosFirebase] = useState([])
+  const [login, setLogin] = useState(false)
+  const [language, setLanguage] = useState('es-ES')
+
+  useEffect(() => {
+    axios.get('https://goxopasteleria-default-rtdb.europe-west1.firebasedatabase.app//productos.json')
+      .then((response) => {
+        //console.log(response.data)
+        let arrayProductos = []
+        for (let key in response.data) {
+          arrayProductos.push({
+            id: key,
+            nombre: response.data[key].nombre,
+            precio: response.data[key].precio,
+            fecha: new Date(response.data[key].fecha),
+            descripcion: response.data[key].descripcion
+          })
+        }
+        //console.log(arrayProductos)
+        setproductosFirebase(arrayProductos)
+      })
+      .catch((error) => { console.log(error) })
+  }, [])
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <AutContext.Provider  value={{ login: login, language: language }}>
+        <Header />
+        <Routes>
+          <Route path='/' element={<Home />}></Route>
+          <Route path='/productos' element={<Productos productos={productosFirebase} ></Productos>}></Route>
+          <Route path='*' element={<Home />}></Route>
+        </Routes>
+        <Footer />
+      </AutContext.Provider>
     </>
   )
 }
