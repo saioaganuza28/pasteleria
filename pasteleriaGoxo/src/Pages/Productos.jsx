@@ -1,10 +1,11 @@
-import Producto from "../Componentes/Producto";
+import { Navbar, Container, Row, Nav, Button, Badge} from 'react-bootstrap';
+import { Link } from 'react-router';
 
-function Productos(productos) {
+function Productos(props) {
     return(
         <Container className="py-5">
         <Row className="gx-4 gx-lg-5 justify-content-center">
-          {productos.map((product) => (
+          {props.productos.map((product) => (
             product.descripcion
           ))}
         </Row>
