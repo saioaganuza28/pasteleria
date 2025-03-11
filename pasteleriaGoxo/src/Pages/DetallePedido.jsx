@@ -29,10 +29,8 @@ function DetallePedido() {
     };
 
     useEffect(() => {
-        console.log(contextValue);
         axios.get(`https://goxopasteleria-default-rtdb.europe-west1.firebasedatabase.app/${contextValue.loginData.uid}Pedidos.json?orderBy="$key"&equalTo="${parametros.id}"`)
             .then((resultado) => {
-                console.log('llega2');
                 if (resultado.data && Object.keys(resultado.data).length > 0) {
                     const pedidoData = Object.values(resultado.data)[0];
                     const pedido = {
@@ -44,7 +42,6 @@ function DetallePedido() {
                         productos: pedidoData.productos,
                     };
                     setPedido(pedido);
-                    console.log(pedido);
                 } else {
                     console.error("Pedido no encontrado");
                 }

@@ -19,7 +19,6 @@ function Producto(props) {
     }, [props.productosCesta])
 
     const handleCantidadChange = (nuevaCantidad) => {
-        console.log(props.auth.login)
         if (props.auth.login) {
 
             const producto = {
