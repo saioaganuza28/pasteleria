@@ -8,6 +8,8 @@ import { useState, useEffect } from "react";
 function Producto(props) {
 
     const [cantidadInicialProducto, setCantidadInicialProducto] = useState(0);
+
+
     useEffect(() => {
         props.productosCesta.forEach((item) => {
             if (item.clave === props.producto.clave) {
@@ -17,22 +19,21 @@ function Producto(props) {
     }, [props.productosCesta])
 
     const handleCantidadChange = (nuevaCantidad) => {
-        if (!props.auth?.loginData?.uid || !props.auth?.loginData?.idToken) {
-            console.error("Error: UID o ID Token no definidos");
-            return;
+        console.log(props.auth.login)
+        if (props.auth.login) {
+
+            const producto = {
+                clave: props.producto.clave,
+                cantidad: nuevaCantidad
+            };
+
+            const url = `https://goxopasteleria-default-rtdb.europe-west1.firebasedatabase.app/${props.auth.loginData.uid}/${props.producto.clave}.json?auth=${props.auth.loginData.idToken}`;
+
+            axios.put(url, producto)
+                .catch((error) => {
+                    console.error("Error al actualizar producto:", error);
+                });
         }
-
-        const producto = {
-            clave: props.producto.clave,
-            cantidad: nuevaCantidad
-        };
-
-        const url = `https://goxopasteleria-default-rtdb.europe-west1.firebasedatabase.app/${props.auth.loginData.uid}/${props.producto.clave}.json?auth=${props.auth.loginData.idToken}`;
-
-        axios.put(url, producto) 
-            .catch((error) => {
-                console.error("Error al actualizar producto:", error);
-            });
     };
 
     return (

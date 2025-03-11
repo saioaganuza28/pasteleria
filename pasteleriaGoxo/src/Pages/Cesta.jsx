@@ -16,6 +16,8 @@ function Cesta(props) {
   const [productosCesta, setProductosCesta] = useState([]);
   const [arrayProductos, setArrayProductos] = useState([])
   const [showModal, setShowModal] = useState(false)
+  const [confirmado, setConfirmado] = useState(false)
+  const [totalPrecio, setTotalPrecio] = useState('')
 
   const schema = yup.object().shape({
     nombreCompleto: yup.string().required("Introduzca su nombre completo"),
@@ -70,9 +72,9 @@ function Cesta(props) {
       setContenido(
         <>
           <Productos productos={arrayProductos} cesta={true} />
-          <Button onClick={() => setShowModal(true)}>Realizar pedido</Button>
+          <Button onClick={()=> {comenzarProceso(arrayProductos)}}>Realizar pedido</Button>
         </>)
-    } else if(contextValue.login) {
+    } else if (contextValue.login) {
       setContenido(
         <>
           Carrito vacío, vé a comprar!
@@ -84,6 +86,14 @@ function Cesta(props) {
 
   }, [props.productos, productosCesta]);
 
+  const comenzarProceso = (arrayProductos) => {
+    setConfirmado(false)
+    const totalPrecio = arrayProductos.reduce((total, producto) => {
+      return total + producto.precio * producto.cantidad;
+    }, 0);
+    setTotalPrecio(totalPrecio)
+    setShowModal(true)
+  }
   const realizarPedido = (data) => {
     const productos = {
       ...arrayProductos.reduce((acc, producto) => {
@@ -91,9 +101,6 @@ function Cesta(props) {
         return acc;
       }, {})
     }
-    const totalPrecio = arrayProductos.reduce((total, producto) => {
-      return total + producto.precio * producto.cantidad;
-    }, 0);
     const pedido = {
       nombreCompleto: data.nombreCompleto,
       direccion: data.direccion,
@@ -106,7 +113,7 @@ function Cesta(props) {
       .then(() => {
         setContenido(
           <div class="alert alert-success" role="alert">
-            Pedido realizado correctamente
+            Pedido realizado correctamente, ¡Gracias!
             <Link to="/productos" className="nav-link">
               <Button className="cart-btn">Realizar nuevo pedido</Button>
             </Link>
@@ -127,36 +134,46 @@ function Cesta(props) {
     <Container className="py-5">
       <Modal show={showModal} centered className="custom-modal">
         <div className="modal-blur-background" onClick={cerrarModal}></div>
-        <Modal.Body className="modal-content">
-          <Button className="close-btn" onClick={cerrarModal}>✖</Button>
-          <p className="modal-subtitle">Rellena tus datos para completar el pedido.</p>
-          {arrayProductos.map((producto) => (
-            <div key={producto.id}>
-              {producto.nombre}: {producto.cantidad}
-            </div>
-          ))}
-          <Form onSubmit={handleSubmit(realizarPedido)}>
-            <label>Nombre completo *</label>
-            <FloatingLabel controlId="Nombre completo" className="mb-3">
-              <Form.Control type="text" {...register("nombreCompleto")} />
-              <p className="error">{errors.nombreCompleto?.message}</p>
-            </FloatingLabel>
-            <label>Dirección de envío *</label>
-            <FloatingLabel controlId="direccion" className="mb-3">
-              <Form.Control type="text" {...register("direccion")} />
-              <p className="error">{errors.direccion?.message}</p>
-            </FloatingLabel>
-            <label>Código postal *</label>
-            <FloatingLabel controlId="codigoPostal" className="mb-3">
-              <Form.Control type="number"  {...register("codigoPostal")} />
-              <p className="error">{errors.codigoPostal?.message}</p>
-            </FloatingLabel>
-            <Button variant="warning" type="submit" className="submit-btn">Realizar pedido</Button>
-          </Form>
-        </Modal.Body>
+        {confirmado ?
+          (<Modal.Body className="modal-content">
+            <Button className="close-btn" onClick={cerrarModal}>✖</Button>
+            <p className="modal-subtitle">Rellena tus datos para completar el pedido.</p>
+            <Form onSubmit={handleSubmit(realizarPedido)}>
+              <label>Nombre completo *</label>
+              <FloatingLabel controlId="Nombre completo" className="mb-3">
+                <Form.Control type="text" {...register("nombreCompleto")} />
+                <p className="error">{errors.nombreCompleto?.message}</p>
+              </FloatingLabel>
+              <label>Dirección de envío *</label>
+              <FloatingLabel controlId="direccion" className="mb-3">
+                <Form.Control type="text" {...register("direccion")} />
+                <p className="error">{errors.direccion?.message}</p>
+              </FloatingLabel>
+              <label>Código postal *</label>
+              <FloatingLabel controlId="codigoPostal" className="mb-3">
+                <Form.Control type="number"  {...register("codigoPostal")} />
+                <p className="error">{errors.codigoPostal?.message}</p>
+              </FloatingLabel>
+              <Button variant="warning" type="submit" className="submit-btn">Realizar pedido</Button>
+            </Form>
+          </Modal.Body>
+          ) : (
+            <Modal.Body className="modal-content">
+              <Button className="close-btn" onClick={cerrarModal}>✖</Button>
+              <label>Resumen del pedido</label>
+              {arrayProductos.map((producto) => (
+                <div key={producto.id}>
+                  {producto.nombre}: {producto.cantidad}
+                </div>
+              ))}
+              <div>Total: {totalPrecio} </div>
+              <Button variant="warning" onClick={() => { setConfirmado(true) }}>CONTINUAR</Button>
+            </Modal.Body>
+          )
+        }
       </Modal>
       {contenido}
-    </Container>
+    </Container >
   );
 }
 
