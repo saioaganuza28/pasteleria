@@ -82,7 +82,7 @@ function Cesta(props) {
     } else if (contextValue.login) {
       setContenido(
         <>
-          Carrito vacío, vé a comprar!
+          Carrito vacío, ve a comprar!
           <Link to="/productos" className="nav-link">
             <Button className="cart-btn">Comprar</Button>
           </Link>
