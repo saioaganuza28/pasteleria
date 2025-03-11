@@ -60,12 +60,12 @@ function App() {
       <AutContext.Provider value={{ login: login, loginData: loginData, showLogin: showLogin, setShowLogin: setShowLogin, actualizarLogin: actualizarLogin }}>
         <Header setShowLogin={setShowLogin} actualizarLogin={actualizarLogin} />
         <Routes>
-          <Route path='/' element={<Home />}></Route>
+          <Route path='/sobre-nosotros' element={<Home />}></Route>
           <Route path='/productos' element={<Productos productos={productosFirebase} cesta={false}/>}></Route>
           <Route path='/pedidos' element={<Pedidos/>}></Route>
           <Route path='/pedido/detalle/:id' element={<DetallePedido />}></Route>
           <Route path='/cesta' element={<Cesta productos={productosFirebase}/>}></Route>
-          <Route path='*' element={<Home />}></Route>
+          <Route path='*' element={<Productos  productos={productosFirebase} cesta={false}/>}></Route>
         </Routes>
         <Login show={showLogin} setShow={setShowLogin} actualizarLogin={actualizarLogin} />
         <Footer />

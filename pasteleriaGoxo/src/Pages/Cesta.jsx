@@ -68,11 +68,16 @@ function Cesta(props) {
       }
     }
     setArrayProductos(arrayProductos)
+    const totalPrecio = arrayProductos.reduce((total, producto) => {
+      return total + producto.precio * producto.cantidad;
+    }, 0);
+    setTotalPrecio(totalPrecio)
     if (arrayProductos.length > 0) {
       setContenido(
         <>
           <Productos productos={arrayProductos} cesta={true} />
-          <Button onClick={()=> {comenzarProceso(arrayProductos)}}>Realizar pedido</Button>
+          <div>Total: {totalPrecio}€</div>
+          <Button onClick={()=> {comenzarProceso()}}>Realizar pedido</Button>
         </>)
     } else if (contextValue.login) {
       setContenido(
@@ -86,12 +91,8 @@ function Cesta(props) {
 
   }, [props.productos, productosCesta]);
 
-  const comenzarProceso = (arrayProductos) => {
+  const comenzarProceso = () => {
     setConfirmado(false)
-    const totalPrecio = arrayProductos.reduce((total, producto) => {
-      return total + producto.precio * producto.cantidad;
-    }, 0);
-    setTotalPrecio(totalPrecio)
     setShowModal(true)
   }
   const realizarPedido = (data) => {
@@ -166,7 +167,7 @@ function Cesta(props) {
                   {producto.nombre}: {producto.cantidad}
                 </div>
               ))}
-              <div>Total: {totalPrecio} </div>
+              <div>Total: {totalPrecio}€ </div>
               <Button variant="warning" onClick={() => { setConfirmado(true) }}>CONTINUAR</Button>
             </Modal.Body>
           )

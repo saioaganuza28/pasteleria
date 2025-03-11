@@ -41,7 +41,7 @@ function Producto(props) {
                 <div>Nombre: {props.producto.nombre}</div>
                 <div>Descripción: {props.producto.descripcion}</div>
                 <div>Valoración: {props.producto.valoracion}</div>
-                <div>Precio: {props.producto.precio}</div>
+                <div>Precio: {props.producto.precio}€</div>
                 {props.cesta && (<div>Cantidad: {props.producto.cantidad}</div>)}
             </Row>
             {!props.cesta && <CantidadSelector cantidadInicial={cantidadInicialProducto} onCantidadChange={handleCantidadChange}></CantidadSelector>}
