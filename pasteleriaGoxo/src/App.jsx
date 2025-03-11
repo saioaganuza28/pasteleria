@@ -6,10 +6,13 @@ import Footer from './Componentes/ui/Footer';
 import Home from './Pages/Home';
 import Productos from './Pages/Productos';
 import Login from './Componentes/Login/Login';
+import DetallePedido from './Pages/DetallePedido';
 import { Route, Routes } from 'react-router'
 import AutContext from '../store/AutContext';
+import Pedidos from './Pages/Pedidos';
 import axios from 'axios'
 import Cesta from './Pages/Cesta';
+
 
 function App() {
 
@@ -59,6 +62,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path='/productos' element={<Productos productos={productosFirebase} cesta={false}/>}></Route>
+          <Route path='/pedidos' element={<Pedidos/>}></Route>
+          <Route path='/pedido/detalle/:id' element={<DetallePedido />}></Route>
           <Route path='/cesta' element={<Cesta productos={productosFirebase}/>}></Route>
           <Route path='*' element={<Home />}></Route>
         </Routes>

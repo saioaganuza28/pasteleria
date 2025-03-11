@@ -11,7 +11,6 @@ function Producto(props) {
     useEffect(() => {
         props.productosCesta.forEach((item) => {
             if (item.clave === props.producto.clave) {
-                console.log('entra')
                 setCantidadInicialProducto(item.cantidad);
             }
         });
@@ -31,9 +30,6 @@ function Producto(props) {
         const url = `https://goxopasteleria-default-rtdb.europe-west1.firebasedatabase.app/${props.auth.loginData.uid}/${props.producto.clave}.json?auth=${props.auth.loginData.idToken}`;
 
         axios.put(url, producto) 
-            .then((response) => {
-                console.log("Producto actualizado:", response.data);
-            })
             .catch((error) => {
                 console.error("Error al actualizar producto:", error);
             });

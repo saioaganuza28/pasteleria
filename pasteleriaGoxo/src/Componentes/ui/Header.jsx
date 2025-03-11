@@ -28,6 +28,7 @@ function Header(props) {
           </Navbar.Brand>
           <Nav className="ml-auto navbar-links">
             <Link to="/productos" className="nav-link">Productos</Link>
+            <Link to="/pedidos" className="nav-link">Pedidos</Link>
             <Link to="/sobre-nosotros" className="nav-link">Sobre Nosotros</Link>
 
           </Nav>

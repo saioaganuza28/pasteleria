@@ -58,12 +58,12 @@ function Login(props) {
           <p className="modal-subtitle">Ingresa tus datos para acceder.</p>
 
           <Form onSubmit={handleSubmit(iniciarSesion)}>
-            <label>Crreo electrónico</label>
+            <label>Correo electrónico *</label>
             <FloatingLabel controlId="email" className="mb-3">
               <Form.Control type="email" placeholder="nombre@email.com" {...register("email")} />
               <p className="error">{errors.email?.message}</p>
             </FloatingLabel>
-            <label>Contraseña</label>
+            <label>Contraseña *</label>
             <FloatingLabel controlId="password" className="mb-3">
               <Form.Control type="password" placeholder="••••••" {...register("password")} />
               <p className="error">{errors.password?.message}</p>
@@ -80,12 +80,12 @@ function Login(props) {
           <p className="modal-subtitle">Ingresa tus datos para registrarte.</p>
 
           <Form onSubmit={handleSubmit(registrarse)}>
-            <label>Crreo electrónico</label>
+            <label>Correo electrónico *</label>
             <FloatingLabel controlId="email" className="mb-3">
               <Form.Control type="email" placeholder="nombre@email.com" {...register("email")} />
               <p className="error">{errors.email?.message}</p>
             </FloatingLabel>
-            <label>Contraseña</label>
+            <label>Contraseña *</label>
             <FloatingLabel controlId="password" className="mb-3">
               <Form.Control type="password" placeholder="••••••" {...register("password")} />
               <p className="error">{errors.password?.message}</p>

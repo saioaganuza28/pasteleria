@@ -32,7 +32,7 @@ function CantidadSelector({ cantidadInicial, onCantidadChange }) {
       <FormControl
         value={cantidad}
         onChange={(e) => {
-          let value = parseInt(e.target.value) || 1;
+          let value = parseInt(e.target.value) || 0;
           setCantidad(value);
           onCantidadChange(value);
         }}
