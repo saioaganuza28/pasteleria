@@ -1,70 +1,67 @@
 
-  #root {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Mínimo 100% de la altura de la ventana */
-  }
-  
-  .footer {
-    margin-top: auto;
-    background-color: #6c757d; /* Fondo oscuro elegante */
-    color: #fff;
-    text-align: center;
-    height: auto;
-    padding: 0 0; 
-  }
-  
-  .footer-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 0;
-  }
-  
-  .footer-section {
-    flex: 1;
-    min-width: 200px;
-  }
-  
-  
-  .footer-section p {
-    font-size: 0.8rem;
-    margin: 0 0;
-  }
-  
-  .footer-link {
-    display: block;
-    color: #f1ffa4; /* Amarillo pastel */
-    text-decoration: none;
-    font-size: 0.5rem;
-  }
-  
-  .footer-link:hover {
-    text-decoration: underline;
-  }
-  
-  /* Redes sociales */
-  .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-  }
-  
-  .social-icon {
-    color: #fff;
-    font-size: rem;
-    transition: transform 0.3s ease;
-  }
-  
-  .social-icon:hover {
-    color:#f1ffa4;
-    transform: scale(1.2);
-  }
-  
-  .footer-bottom-text {
-    font-size: 0.7rem;
-    opacity: 0.7;
-  }
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.footer {
+  margin-top: auto;
+  background-color: #6c757d;
+  color: #fff;
+  text-align: center;
+  padding: 30px 10px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-section p {
+  font-size: 0.9rem;
+  margin: 10px 0;
+}
+
+.footer-link {
+  display: block;
+  color: #f1ffa4;
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icon {
+  color: #fff;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #f1ffa4;
+  transform: scale(1.2);
+}
+
+.footer-bottom-text {
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
   
 

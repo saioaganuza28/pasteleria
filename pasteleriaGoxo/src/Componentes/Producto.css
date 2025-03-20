@@ -1,5 +1,53 @@
-.producto{
-    border: solid, violet;
+.producto {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin: 1rem;
-    padding: 1rem;
-}
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .producto img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .producto .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #7F57D0;
+    margin-top: 15px;
+  }
+  
+  .producto .price {
+    font-size: 1.2rem;
+    color: #FFC107;
+    margin: 10px 0;
+  }
+  
+  .producto .rating {
+    color: #FFC107;
+    font-size: 1.1rem;
+  }
+  
+  .producto button {
+    background-color: #7F57D0;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: none;
+    font-size: 1rem;
+    margin-top: 15px;
+  }
+  
+  .producto button:hover {
+    background-color: #6A4C9C;
+  }
