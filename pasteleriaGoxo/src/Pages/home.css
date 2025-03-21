@@ -42,30 +42,46 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 50px;
+  position: relative; /* Necesario para posicionar el título sobre la imagen */
 }
 
-x.historia-texto {
-  max-width: 800px; /* Aumentamos el tamaño del cuadro de texto */
-  text-align: left;
-  padding: 30px; /* Aumentamos el padding para dar más espacio dentro del cuadro */
-  background-color: #f9ebff; /* Color de fondo lila claro para hacer que resalte */
+.historia-texto {
+  max-width: 800px;
+  text-align: center; /* Centra el texto dentro del cuadro */
+  padding: 30px;
+  background-color: #f9ebff; /* Fondo lila claro */
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 0 20px; /* Añadimos margen para que no esté pegado a los bordes */
+  margin: 0 20px;
 }
 
 .historia-img {
-  width: 300px;        /* Ajusta el tamaño de la imagen */
-  height: 300px;       /* Asegúrate de que la altura sea la misma que el ancho para un efecto circular */
-  border-radius: 50%;  /* Esto hace que la imagen sea circular */
-  object-fit: cover;   /* Esto asegura que la imagen se recorte adecuadamente para ajustarse al contenedor */
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
   transition: transform 0.3s ease-in-out;
-  margin-top: 20px; /* Espacio entre el texto y la imagen */
+  margin-top: 20px;
 }
 
 .historia-img:hover {
   transform: scale(1.05);
 }
+
+.titulo-historia {
+  font-size: 2,5rem;
+  font-weight: bold;
+  color: #7F57D0;
+  font-family: 'Georgia', serif;
+}
+
+.titulo-productos {
+  font-size: 2,5rem;
+  font-weight: bold;
+  color: #7F57D0;
+  font-family: 'Georgia', serif;
+}
+
 
 /* Productos en carrusel */
 .productos {

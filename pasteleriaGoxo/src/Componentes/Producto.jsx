@@ -1,9 +1,9 @@
-import { Navbar, Nav, Container, Button, Card, Row, Col, Badge } from "react-bootstrap";
-import AutContext from "../../store/AutContext";
-import axios from "axios";
-import './Producto.css'
+import { Row, Button } from "react-bootstrap";
+import './Producto.css';
 import CantidadSelector from "./CantidadSelector";
 import { useState, useEffect, useContext } from "react";
+import AutContext from "../../store/AutContext";
+import axios from "axios";
 
 function Producto(props) {
 
@@ -17,7 +17,7 @@ function Producto(props) {
                 setCantidadInicialProducto(item.cantidad);
             }
         });
-    }, [props.productosCesta])
+    }, [props.productosCesta]);
 
     const handleCantidadChange = (nuevaCantidad) => {
         if (props.auth.login) {
@@ -31,7 +31,7 @@ function Producto(props) {
 
             axios.put(url, producto).then(
                 setTimeout(() => {
-                    contextValue.setMessage("¡"+ props.producto.nombre + " añadido a la cesta correctamente!");
+                    contextValue.setMessage("¡" + props.producto.nombre + " añadido a la cesta correctamente!");
                     contextValue.setAnchorEl(document.body);
                 }, 0)
             )
@@ -39,9 +39,10 @@ function Producto(props) {
                     console.error("Error al actualizar producto:", error);
                 });
         } else {
-            contextValue.setShowLogin(true)
+            contextValue.setShowLogin(true);
         }
     };
+
     const eliminarDeLaCesta = () => {
         const url = `https://goxopasteleria-default-rtdb.europe-west1.firebasedatabase.app/${props.auth.loginData.uid}/${props.producto.clave}.json?auth=${props.auth.loginData.idToken}`;
         axios.delete(url)
@@ -49,23 +50,35 @@ function Producto(props) {
             .catch((error) => {
                 console.error("Error al eliminar producto:", error);
             });
-
     };
 
     return (
         <>
             <Row className="producto">
-                <div>Nombre: {props.producto.nombre}</div>
-                <div>Descripción: {props.producto.descripcion}</div>
-                <img src={props.producto.imagen} alt="Tarta de Fresas" width="300" />
-                <div>Valoración: {props.producto.valoracion}</div>
-                <div>Precio: {props.producto.precio}€</div>
-                {props.cesta && (<div>Cantidad: {props.producto.cantidad}</div>)}
-                {props.cesta && <Button onClick={eliminarDeLaCesta}> 🗑 </Button>}
+                {/* Imagen del producto */}
+                <img src={props.producto.imagen} alt={props.producto.nombre} className="producto-img" />
+                {/* Nombre del producto */}
+                <div className="producto-title">{props.producto.nombre}</div>
+                {/* Descripción del producto */}
+                <div className="producto-description">{props.producto.descripcion}</div>
+                {/* Valoración */}
+                <div className="producto-rating">
+                    {[...Array(props.producto.valoracion)].map((_, i) => <span key={i} className="star">★</span>)}
+                </div>
+                {/* Precio del producto */}
+                <div className="producto-price">{props.producto.precio}€</div>
+                {/* Si está en la cesta, mostrar la cantidad */}
+                {props.cesta && <div>Cantidad: {props.producto.cantidad}</div>}
+                {/* Botón para eliminar del carrito */}
+                {props.cesta && <Button onClick={eliminarDeLaCesta}>🗑</Button>}
             </Row>
-            {!props.cesta && <CantidadSelector cantidadInicial={cantidadInicialProducto} onCantidadChange={handleCantidadChange}></CantidadSelector>}
-
+            {/* Selector de cantidad si no está en la cesta */}
+            {!props.cesta && <CantidadSelector cantidadInicial={cantidadInicialProducto} onCantidadChange={handleCantidadChange} />}
         </>
-    )
+    );
 }
+
 export default Producto;
+
+
+

@@ -1,53 +1,82 @@
+/* Producto.css */
+
+/* Estilo general del producto */
 .producto {
-    background-color: white;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin: 1rem;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .producto:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  }
-  
-  .producto img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-  
-  .producto .title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #7F57D0;
-    margin-top: 15px;
-  }
-  
-  .producto .price {
-    font-size: 1.2rem;
-    color: #FFC107;
-    margin: 10px 0;
-  }
-  
-  .producto .rating {
-    color: #FFC107;
-    font-size: 1.1rem;
-  }
-  
-  .producto button {
-    background-color: #7F57D0;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 25px;
-    border: none;
-    font-size: 1rem;
-    margin-top: 15px;
-  }
-  
-  .producto button:hover {
-    background-color: #6A4C9C;
-  }
+  background-color: #faf1f9; /* Lila claro, casi blanco */
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Playfair Display', serif; /* Fuente elegante */
+  font-size: 1.1rem; /* Tamaño de texto más grande */
+}
+
+/* Centrado de la imagen */
+.producto img {
+  width: 300px; /* Tamaño de la imagen */
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 0 auto 15px; /* Centrado con margen inferior */
+  display: block; /* Hace que la imagen sea un bloque */
+}
+
+/* Nombre del producto */
+.producto-title {
+  font-size: 2rem; /* Tamaño de texto grande */
+  font-weight: bold;
+  color: #7F57D0; /* Color lila oscuro para contraste */
+  margin-top: 15px;
+  font-family: 'Playfair Display', serif; /* Asegura que use la fuente elegante */
+}
+
+/* Descripción del producto */
+.producto-description {
+  font-size: 1.1rem; /* Tamaño de texto adecuado */
+  color: #444; /* Color de texto gris oscuro */
+  margin: 10px 0;
+  font-family: 'Georgia', serif; /* Fuente elegante para la descripción */
+  font-style: italic; /* Hacer la descripción en itálica */
+}
+
+/* Valoración del producto */
+.producto-rating {
+  display: flex; /* Muestra las estrellas en línea */
+  justify-content: center; /* Centra las estrellas */
+  color: #FFD700; /* Color dorado para las estrellas */
+  font-size: 1.4rem;
+  margin-top: 10px;
+}
+
+.producto-rating .star {
+  margin: 0 3px; /* Espacio entre las estrellas */
+}
+
+/* Precio del producto */
+.producto-price {
+  font-size: 1.4rem;
+  color: #FFC107; /* Color dorado para el precio */
+  margin: 10px 0;
+  font-family: 'Playfair Display', serif;
+}
+
+/* Estilo del botón */
+.producto button {
+  background-color: #7F57D0;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: none;
+  font-size: 1.2rem;
+  margin-top: 15px;
+  transition: background-color 0.3s;
+  font-family: 'Playfair Display', serif;
+}
+
+.producto button:hover {
+  background-color: #6A4C9C;
+}
+
+
