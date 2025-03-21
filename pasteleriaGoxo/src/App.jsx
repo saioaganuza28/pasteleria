@@ -36,6 +36,7 @@ function App() {
         for (let key in response.data) {
           arrayProductos.push({
             id: key,
+            imagen: response.data[key].imagen,
             nombre: response.data[key].nombre,
             precio: response.data[key].precio,
             valoracion: response.data[key].valoracion,

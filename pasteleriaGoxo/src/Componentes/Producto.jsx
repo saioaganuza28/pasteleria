@@ -40,6 +40,7 @@ function Producto(props) {
             <Row className="producto">
                 <div>Nombre: {props.producto.nombre}</div>
                 <div>Descripción: {props.producto.descripcion}</div>
+                {/* aquí la imagen */}
                 <div>Valoración: {props.producto.valoracion}</div>
                 <div>Precio: {props.producto.precio}€</div>
                 {props.cesta && (<div>Cantidad: {props.producto.cantidad}</div>)}

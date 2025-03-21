@@ -58,6 +58,7 @@ function Cesta(props) {
         if (productos[key].clave == productosCesta[keyCesta].nombre) {
           arrayProductos.push({
             id: key,
+            imagen: productos[key].imagen,
             nombre: productos[key].nombre,
             precio: productos[key].precio,
             cantidad: productosCesta[keyCesta].cantidad,
