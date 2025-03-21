@@ -78,7 +78,12 @@
     font-size: 0.8rem; /* Hacemos los enlaces más compactos */
     margin-right: 10px;
   }
-  
+  .logo-img {
+    width: 100px;        /* Ajusta el tamaño de la imagen */
+    height: 100px;       /* Asegúrate de que la altura sea la misma que el ancho para un efecto circular */
+    border-radius: 50%;  /* Esto hace que la imagen sea circular */
+    object-fit: cover;   /* Esto asegura que la imagen se recorte adecuadamente para ajustarse al contenedor */
+  }
   .cart-btn {
     font-size: 1rem; /* Tamaño más pequeño */
     padding: 4px 10px;

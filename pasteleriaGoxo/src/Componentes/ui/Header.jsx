@@ -18,10 +18,9 @@ function Header(props) {
     <>
       <Navbar className="navbar-main" expand="lg">
         <Container>
-          <Navbar.Brand href="#home" className="logo">
+          <Navbar.Brand href="/home" className="logo">
             <img
-              src="https://via.placeholder.com/40" 
-              alt="Logo"
+              src='https://static.vecteezy.com/system/resources/previews/011/787/246/non_2x/cake-shop-logo-cupcake-and-berries-illustration-for-menu-recipe-book-baking-shop-cafe-restaurant-vector.jpg'
               className="logo-img"
             />
             Pastelitos Store
