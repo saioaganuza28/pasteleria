@@ -12,6 +12,7 @@ import AutContext from '../store/AutContext';
 import Pedidos from './Pages/Pedidos';
 import axios from 'axios'
 import Cesta from './Pages/Cesta';
+import { Popover, Typography } from '@mui/material';
 
 
 function App() {
@@ -20,6 +21,15 @@ function App() {
   const [showLogin, setShowLogin] = useState(false);
   const [loginData, setLoginData] = useState({});
   const [productosFirebase, setproductosFirebase] = useState([])
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [message, setMessage] = useState('');
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
+
+
+  const handleClose = () => {
+    setAnchorEl(null);  // Cierra el popover
+  };
   
   const actualizarLogin = (login, loginData) => {
     setLogin(login);
@@ -56,9 +66,28 @@ function App() {
     }
   }, [])
 
+
   return (
     <>
-      <AutContext.Provider value={{ login: login, loginData: loginData, showLogin: showLogin, setShowLogin: setShowLogin, actualizarLogin: actualizarLogin }}>
+      <AutContext.Provider value={{ login: login, loginData: loginData, showLogin: showLogin, 
+        setShowLogin: setShowLogin, actualizarLogin: actualizarLogin, setAnchorEl:setAnchorEl, 
+        setMessage:setMessage }}>
+      <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+      >
+        <Typography sx={{ padding: 2 }}>{message}</Typography>
+      </Popover>
         <Header setShowLogin={setShowLogin} actualizarLogin={actualizarLogin} />
         <Routes>
           <Route path='/sobre-nosotros' element={<Home />}></Route>

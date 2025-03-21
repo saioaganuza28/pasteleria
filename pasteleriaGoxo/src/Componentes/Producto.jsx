@@ -29,7 +29,12 @@ function Producto(props) {
 
             const url = `https://goxopasteleria-default-rtdb.europe-west1.firebasedatabase.app/${props.auth.loginData.uid}/${props.producto.clave}.json?auth=${props.auth.loginData.idToken}`;
 
-            axios.put(url, producto)
+            axios.put(url, producto).then(
+                setTimeout(() => {
+                    contextValue.setMessage("¡"+ props.producto.nombre + " añadido a la cesta correctamente!");
+                    contextValue.setAnchorEl(document.body);
+                }, 0)
+            )
                 .catch((error) => {
                     console.error("Error al actualizar producto:", error);
                 });
@@ -40,10 +45,10 @@ function Producto(props) {
     const eliminarDeLaCesta = () => {
         const url = `https://goxopasteleria-default-rtdb.europe-west1.firebasedatabase.app/${props.auth.loginData.uid}/${props.producto.clave}.json?auth=${props.auth.loginData.idToken}`;
         axios.delete(url)
-        .then(props.consultarCesta)
-        .catch((error) => {
-            console.error("Error al eliminar producto:", error);
-        });
+            .then(props.consultarCesta)
+            .catch((error) => {
+                console.error("Error al eliminar producto:", error);
+            });
 
     };
 
@@ -56,10 +61,10 @@ function Producto(props) {
                 <div>Valoración: {props.producto.valoracion}</div>
                 <div>Precio: {props.producto.precio}€</div>
                 {props.cesta && (<div>Cantidad: {props.producto.cantidad}</div>)}
-                {props.cesta && <Button onClick={eliminarDeLaCesta}> 🗑 </Button>}  
+                {props.cesta && <Button onClick={eliminarDeLaCesta}> 🗑 </Button>}
             </Row>
             {!props.cesta && <CantidadSelector cantidadInicial={cantidadInicialProducto} onCantidadChange={handleCantidadChange}></CantidadSelector>}
-            
+
         </>
     )
 }
