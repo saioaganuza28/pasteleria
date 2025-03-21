@@ -1,68 +1,60 @@
-/* Producto.css */
 
-/* Estilo general del producto */
 .producto {
-  background-color: #faf1f9; /* Lila claro, casi blanco */
+  background-color: #faf1f9; 
   border-radius: 10px;
   padding: 25px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin: 1rem;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  font-family: 'Playfair Display', serif; /* Fuente elegante */
-  font-size: 1.1rem; /* Tamaño de texto más grande */
+  font-family: 'Playfair Display', serif; 
+  font-size: 1.1rem; 
 }
 
-/* Centrado de la imagen */
 .producto img {
-  width: 300px; /* Tamaño de la imagen */
+  width: 300px; 
   height: 300px;
   object-fit: cover;
   border-radius: 8px;
-  margin: 0 auto 15px; /* Centrado con margen inferior */
-  display: block; /* Hace que la imagen sea un bloque */
+  margin: 0 auto 15px; 
+  display: block;
 }
 
-/* Nombre del producto */
 .producto-title {
-  font-size: 2rem; /* Tamaño de texto grande */
+  font-size: 2rem; 
   font-weight: bold;
-  color: #7F57D0; /* Color lila oscuro para contraste */
+  color: #7F57D0; 
   margin-top: 15px;
-  font-family: 'Playfair Display', serif; /* Asegura que use la fuente elegante */
+  font-family: 'Playfair Display', serif; 
 }
 
-/* Descripción del producto */
 .producto-description {
-  font-size: 1.1rem; /* Tamaño de texto adecuado */
-  color: #444; /* Color de texto gris oscuro */
+  font-size: 1.1rem; 
+  color: #444; 
   margin: 10px 0;
-  font-family: 'Georgia', serif; /* Fuente elegante para la descripción */
-  font-style: italic; /* Hacer la descripción en itálica */
+  font-family: 'Georgia', serif; 
+  font-style: italic; 
 }
 
-/* Valoración del producto */
+
 .producto-rating {
-  display: flex; /* Muestra las estrellas en línea */
-  justify-content: center; /* Centra las estrellas */
-  color: #FFD700; /* Color dorado para las estrellas */
+  display: flex;
+  justify-content: center; 
   font-size: 1.4rem;
   margin-top: 10px;
 }
 
 .producto-rating .star {
-  margin: 0 3px; /* Espacio entre las estrellas */
+  margin: 0 3px;
 }
 
-/* Precio del producto */
 .producto-price {
   font-size: 1.4rem;
-  color: #FFC107; /* Color dorado para el precio */
+  color: #FFC107;
   margin: 10px 0;
   font-family: 'Playfair Display', serif;
 }
 
-/* Estilo del botón */
 .producto button {
   background-color: #7F57D0;
   color: white;

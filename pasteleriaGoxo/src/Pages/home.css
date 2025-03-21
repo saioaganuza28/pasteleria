@@ -1,18 +1,16 @@
 /* Fondo general */
 body {
-  background-color: #f4e1ff; /* Lila clarito */
+  background-color: #f4e1ff;
   background-image: radial-gradient(white 10%, transparent 10%);
   background-size: 30px 30px;
   font-family: 'Arial', sans-serif;
 }
 
-/* Contenedor principal */
 .home-container {
   text-align: center;
   padding: 20px;
 }
 
-/* Hero Section */
 .hero-section {
   background: linear-gradient(135deg, #f0c5ff, #fff6f9);
   padding: 40px;
@@ -22,34 +20,34 @@ body {
 }
 
 .titulo {
-  font-size: 3rem; /* Aumenta el tamaño de la fuente */
+  font-size: 3rem;
   color: #7F57D0;
   font-weight: bold;
-  font-family: 'Georgia', serif; /* Estilo más elegante */
+  font-family: 'Georgia', serif;
 }
 
 .subtitulo {
-  font-size: 1.5rem; /* Aumenta el tamaño de la fuente */
+  font-size: 1.5rem;
   color: #555;
   margin-top: 10px;
-  font-family: 'Georgia', serif; /* Estilo más elegante */
+  font-family: 'Georgia', serif;
 }
 
-/* Sección Historia */
+
 .historia {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 50px;
-  position: relative; /* Necesario para posicionar el título sobre la imagen */
+  position: relative; 
 }
 
 .historia-texto {
   max-width: 800px;
-  text-align: center; /* Centra el texto dentro del cuadro */
+  text-align: center; 
   padding: 30px;
-  background-color: #f9ebff; /* Fondo lila claro */
+  background-color: #f9ebff;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   margin: 0 20px;
@@ -82,8 +80,6 @@ body {
   font-family: 'Georgia', serif;
 }
 
-
-/* Productos en carrusel */
 .productos {
   margin-top: 30px;
   padding: 20px;
@@ -93,25 +89,25 @@ body {
   text-align: center;
   padding: 15px;
   transition: transform 0.3s ease-in-out;
-  background-color: #f9ebff; /* Fondo de los productos lila clarito */
+  background-color: #f9ebff;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .producto img {
   width: 100%;
-  max-width: 250px; /* Ancho fijo */
-  height: 250px; /* Altura fija */
-  object-fit: contain; /* Ajusta la imagen sin recortarla */
+  max-width: 250px; 
+  height: 250px; 
+  object-fit: contain;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .producto h4 {
-  font-size: 1.8rem; /* Aumenta el tamaño del nombre del producto */
+  font-size: 1.8rem; 
   color: #7F57D0;
   font-weight: bold;
-  font-family: 'Georgia', serif; /* Estilo más elegante */
+  font-family: 'Georgia', serif;
 }
 
 .producto p {
@@ -121,7 +117,7 @@ body {
 }
 
 .producto span {
-  font-size: 1.4rem; /* Aumenta el tamaño del precio */
+  font-size: 1.4rem;
   color: #7F57D0;
   font-weight: bold;
   display: block;
