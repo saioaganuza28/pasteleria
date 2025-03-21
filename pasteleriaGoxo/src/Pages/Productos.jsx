@@ -5,7 +5,7 @@ import AutContext from '../../store/AutContext';
 import axios from 'axios';
 
 
-function Productos({ productos, cesta }) {
+function Productos(props) {
   const contextValue = useContext(AutContext);
   const [productosCesta, setProductosCesta] = useState([]);
   useEffect(() => {
@@ -26,8 +26,8 @@ function Productos({ productos, cesta }) {
     <Container className="py-5">
       <Row className="gx-4 gx-lg-5 justify-content-center">
         <div>
-          {productos.map((elemento) => {
-            return <Producto key={elemento.id} producto={elemento} cesta={cesta} auth={contextValue} productosCesta={productosCesta} />
+          {props.productos.map((elemento) => {
+            return <Producto key={elemento.id} producto={elemento} cesta={props.cesta} auth={contextValue} productosCesta={productosCesta} consultarCesta={props.consultarCesta} />
           })}
         </div>
       </Row>

@@ -32,11 +32,17 @@ function Cesta(props) {
   const consultarCesta = () => {
     axios.get('https://goxopasteleria-default-rtdb.europe-west1.firebasedatabase.app/' + contextValue.loginData.uid + '.json')
       .then((response) => {
-        const resultado = Object.values(response.data).map((producto) => ({
-          nombre: producto.clave,
-          cantidad: producto.cantidad
-        }));
-        setProductosCesta(resultado)
+        if(response.data !=null){
+          const resultado = Object.values(response.data).map((producto) => ({
+            nombre: producto.clave,
+            cantidad: producto.cantidad
+          }));
+          setProductosCesta(resultado)
+        }else{
+          const resultado = []
+          setProductosCesta(resultado)
+        }
+
       })
       .catch((error) => { console.log(error) })
   }
@@ -63,7 +69,8 @@ function Cesta(props) {
             precio: productos[key].precio,
             cantidad: productosCesta[keyCesta].cantidad,
             valoracion: productos[key].valoracion,
-            descripcion: productos[key].descripcion
+            descripcion: productos[key].descripcion,
+            clave: productos[key].clave
           })
         }
       }
@@ -76,7 +83,7 @@ function Cesta(props) {
     if (arrayProductos.length > 0) {
       setContenido(
         <>
-          <Productos productos={arrayProductos} cesta={true} />
+          <Productos productos={arrayProductos} cesta={true} consultarCesta={consultarCesta} />
           <div>Total: {totalPrecio}€</div>
           <Button onClick={()=> {comenzarProceso()}}>Realizar pedido</Button>
         </>)
@@ -100,6 +107,7 @@ function Cesta(props) {
     const productos = {
       ...arrayProductos.reduce((acc, producto) => {
         acc[producto.nombre] = producto.cantidad;
+        acc["imagen"] = producto.imagen;
         return acc;
       }, {})
     }
