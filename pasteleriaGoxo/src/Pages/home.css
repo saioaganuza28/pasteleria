@@ -1,75 +1,118 @@
-/* Estilos generales */
-.container {
-    padding: 20px;
-  }
-  
-  /* Hero Section */
-  .hero-section {
-    background: linear-gradient(135deg, #f0c5ff, #fff6f9);
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-  }
-  
-  .titulo {
-    font-size: 2.5rem;
-    color: #7F57D0;
-    font-weight: bold;
-  }
-  
-  .subtitulo {
-    font-size: 1.2rem;
-    color: #555;
-    margin-top: 10px;
-  }
-  
-  /* Sección Historia */
-  .historia {
-    display: flex;
-    align-items: center;
-    margin-top: 50px;
-  }
-  
-  .historia-texto {
-    padding: 20px;
-  }
-  
-  .historia-img {
-    width: 100%;
-    max-width: 400px;
-    height: 300px; /* Altura fija */
-    object-fit: contain; /* Ajusta la imagen sin recortarla */
-    border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .historia-img:hover {
-    transform: scale(1.05);
-  }
-  
-  /* Productos */
-  .productos {
-    margin-top: 30px;
-  }
-  
-  .producto {
-    padding: 15px;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .producto img {
-    width: 100%;
-    max-width: 180px; /* Ancho fijo */
-    height: 180px; /* Altura fija */
-    object-fit: contain; /* Ajusta la imagen sin recortarla */
-    border-radius: 10px;
-  }
-  
-  .producto:hover {
-    transform: scale(1.1);
-  }
-  
-  /* Ubicación */
-  .mapa {
-    margin-top: 20px;
-  }
+/* Fondo general */
+body {
+  background-color: #f4e1ff; /* Lila clarito */
+  background-image: radial-gradient(white 10%, transparent 10%);
+  background-size: 30px 30px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Contenedor principal */
+.home-container {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #f0c5ff, #fff6f9);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+}
+
+.titulo {
+  font-size: 3rem; /* Aumenta el tamaño de la fuente */
+  color: #7F57D0;
+  font-weight: bold;
+  font-family: 'Georgia', serif; /* Estilo más elegante */
+}
+
+.subtitulo {
+  font-size: 1.5rem; /* Aumenta el tamaño de la fuente */
+  color: #555;
+  margin-top: 10px;
+  font-family: 'Georgia', serif; /* Estilo más elegante */
+}
+
+/* Sección Historia */
+.historia {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+x.historia-texto {
+  max-width: 800px; /* Aumentamos el tamaño del cuadro de texto */
+  text-align: left;
+  padding: 30px; /* Aumentamos el padding para dar más espacio dentro del cuadro */
+  background-color: #f9ebff; /* Color de fondo lila claro para hacer que resalte */
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 20px; /* Añadimos margen para que no esté pegado a los bordes */
+}
+
+.historia-img {
+  width: 300px;        /* Ajusta el tamaño de la imagen */
+  height: 300px;       /* Asegúrate de que la altura sea la misma que el ancho para un efecto circular */
+  border-radius: 50%;  /* Esto hace que la imagen sea circular */
+  object-fit: cover;   /* Esto asegura que la imagen se recorte adecuadamente para ajustarse al contenedor */
+  transition: transform 0.3s ease-in-out;
+  margin-top: 20px; /* Espacio entre el texto y la imagen */
+}
+
+.historia-img:hover {
+  transform: scale(1.05);
+}
+
+/* Productos en carrusel */
+.productos {
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.producto {
+  text-align: center;
+  padding: 15px;
+  transition: transform 0.3s ease-in-out;
+  background-color: #f9ebff; /* Fondo de los productos lila clarito */
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.producto img {
+  width: 100%;
+  max-width: 250px; /* Ancho fijo */
+  height: 250px; /* Altura fija */
+  object-fit: contain; /* Ajusta la imagen sin recortarla */
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.producto h4 {
+  font-size: 1.8rem; /* Aumenta el tamaño del nombre del producto */
+  color: #7F57D0;
+  font-weight: bold;
+  font-family: 'Georgia', serif; /* Estilo más elegante */
+}
+
+.producto p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-top: 10px;
+}
+
+.producto span {
+  font-size: 1.4rem; /* Aumenta el tamaño del precio */
+  color: #7F57D0;
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+}
+
+.producto:hover {
+  transform: scale(1.1);
+}
+

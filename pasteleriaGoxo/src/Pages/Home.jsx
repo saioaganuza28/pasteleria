@@ -1,96 +1,61 @@
-
-import React from "react";
-import "./Home.css";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import Carousel from 'react-bootstrap/Carousel';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './Home.css';
 
 function Home() {
-  return (
-    <div className="container">
-      {/* Sección Hero */}
-      <div className="hero-section text-center">
-        <h1 className="titulo">Bienvenidos a Goxo</h1>
-        <p className="subtitulo">
-          Repostería artesanal y Bubble Tea en un solo lugar.
-        </p>
-      </div>
+    const [productos, setProductos] = useState([]);
 
-      {/* Sección Historia */}
-      <div className="row historia">
-        <div className="col-md-6">
-          <img
-            src="https://cdn-icons-png.freepik.com/256/8221/8221735.png"
-            alt="Historia de la pastelería"
-            className="img-fluid historia-img"
-          />
-        </div>
-        <div className="col-md-6 historia-texto">
-          <h2>Nuestra Historia</h2>
-          <p>
-            Desde 2001, Goxo ha sido el lugar donde la tradición y
-            la innovación se encuentran. Comenzamos como una pequeña pastelería
-            familiar en el corazón de la ciudad, ofreciendo recetas caseras
-            llenas de amor.
-          </p>
-          <p>
-            Con el tiempo, incorporamos el <strong>Bubble Tea</strong> a
-            nuestro menú, combinando lo mejor de la repostería con las bebidas
-            más refrescantes y coloridas.
-          </p>
-        </div>
-      </div>
+    useEffect(() => {
+        axios.get('https://goxopasteleria-default-rtdb.europe-west1.firebasedatabase.app/productos.json')
+            .then((response) => {
+                let arrayProductos = [];
+                for (let key in response.data) {
+                    arrayProductos.push({
+                        id: key,
+                        nombre: response.data[key].nombre,
+                        precio: response.data[key].precio,
+                        imagen: response.data[key].imagen,
+                        descripcion: response.data[key].descripcion
+                    });
+                }
+                setProductos(arrayProductos);
+            })
+            .catch((error) => { console.log(error) });
+    }, []);
 
-      {/* Sección Especialidades */}
-      <h2 className="text-center mt-5">Nuestras Especialidades</h2>
-      <div className="row productos">
-        <div className="col-md-3 text-center producto">
-          <img
-            src="https://st4.depositphotos.com/24038622/27073/v/450/depositphotos_270734898-stock-illustration-lemon-meringue-pie-cartoon-illustration.jpg"
-            alt="Tarta de Merengue y Limón" 
-            className="img-fluid"
-          />
-          <p>Tarta de Merengue y Limón</p>
-        </div>
-        <div className="col-md-3 text-center producto">
-          <img
-            src="https://"
-            alt="Galleta de Canela"
-            className="img-fluid"
-          />
-          <p>Galleta de Canela</p>
-        </div>
-        <div className="col-md-3 text-center producto">
-          <img
-            src="https://"
-            alt="Tarta de Fresa"
-            className="img-fluid"
-          />
-          <p>Tarta de Fresa</p>
-        </div>
-        <div className="col-md-3 text-center producto">
-          <img
-            src="https://"
-            alt="Bubble Tea de Mango"
-            className="img-fluid"
-          />
-          <p>Bubble Tea de Mango</p>
-        </div>
-      </div>
+    return (
+        <div className="home-container">
+            {/* Sección modificada de "Nuestra Historia" en lugar de "Bienvenidos a..." */}
+            <div className="historia">
+                <div className="historia-texto">
+                    <h3 className="titulo-historia">Nuestra Historia</h3>
+                    <p>DEn Goxo Pastelería, cada pastelito cuenta una historia de pasión y dedicación. Desde nuestros primeros días hace más de 10 años, nos hemos comprometido a ofrecer un sabor único y auténtico en cada bocado. Nacimos con la idea de compartir con nuestros clientes no solo deliciosos pasteles, sino también momentos inolvidables de felicidad. Nos especializamos en sabores exclusivos y recetas artesanales, hechas con ingredientes frescos y de la mejor calidad. Cada pastel es una obra de arte que refleja nuestra dedicación a la tradición, pero con un toque innovador que hace que cada cliente vuelva por más. ¡Ven y descubre lo que significa disfrutar de un pastel como nunca antes!</p>
+                </div>
+                <img src="https://static.vecteezy.com/system/resources/previews/011/787/246/non_2x/cake-shop-logo-cupcake-and-berries-illustration-for-menu-recipe-book-baking-shop-cafe-restaurant-vector.jpg" alt="Historia" className="historia-img" />
+            </div>
 
-      {/* Sección Ubicación */}
-      <div className="text-center mt-5">
-        <h2>¿Dónde estamos?</h2>
-        <p>Visítanos en el centro de la ciudad y disfruta de nuestros dulces.</p>
-        <div className="mapa">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.920137145047!2d-122.08424968469292!3d37.42206597982419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5e4a42d4c7e1e1a0!2sGoogleplex!5e0!3m2!1ses!2ses!4v1622120219255!5m2!1ses!2ses"
-            width="80%"
-            height="300"
-            style={{ border: "0" }}
-            allowFullScreen=""
-            loading="lazy"
-          ></iframe>
+            <div className="productos">
+                <h3>¡Descubre Nuestros Productos!</h3>
+                <Carousel indicators={false} nextIcon={<span aria-hidden="true" className="carousel-control-next-icon" />} prevIcon={<span aria-hidden="true" className="carousel-control-prev-icon" />}>
+                    {productos.map((producto) => (
+                        <Carousel.Item key={producto.id}>
+                            <div className="producto">
+                                <img src={producto.imagen} alt={producto.nombre} className="producto-img" />
+                                <h4>{producto.nombre}</h4>
+                                <p>{producto.descripcion}</p>
+                                <span>{producto.precio} €</span>
+                            </div>
+                        </Carousel.Item>
+                    ))}
+                </Carousel>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 }
+
 export default Home;
+
+
+

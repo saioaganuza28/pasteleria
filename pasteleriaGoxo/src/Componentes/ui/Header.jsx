@@ -42,8 +42,8 @@ function Header(props) {
       </Navbar>
 
       <div className="hero-section">
-        <h1 className="hero-title">Pastelitos Deliciosos</h1>
-        <p className="slogan">¡Endulza tu vida con cada bocado!</p>
+        <h1 className="hero-title">GOXO PASTELERÍA</h1>
+        <p className="slogan">Donde cada bocado cuenta una historia</p>
       </div>
     </>
   )
