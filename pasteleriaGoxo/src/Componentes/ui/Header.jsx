@@ -45,7 +45,7 @@ function Header(props) {
 
             
           </Nav>
-          <Link to="/sobre-nosotros" className="nav-link">Sobre Nosotros</Link>
+          <Link to="/sobre-nosotros" className="nav-link">Sobre Nosotras</Link>
 
           <div className='carritoBoton'>
             <Link to="/cesta" className="nav-link">
