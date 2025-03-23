@@ -1,4 +1,4 @@
-import { Navbar, Nav, Container, Button, Card, Row, Col, Badge, ListGroup } from "react-bootstrap";
+import { Container, Button, Card, Modal, ListGroup } from "react-bootstrap";
 import AutContext from "../../store/AutContext";
 import axios from "axios";
 import './DetallePedido.css'
@@ -14,6 +14,7 @@ function DetallePedido() {
     const parametros = useParams()
     const navigate = useNavigate();
     const [pedido, setPedido] = useState({})
+    const [showModal, setShowModal] = useState(false)
     const contextValue = useContext(AutContext);
 
     const eliminarPedido = () => {
@@ -69,7 +70,7 @@ function DetallePedido() {
                         <Card.Subtitle className="mb-2 text-muted">
                             Código Postal: {pedido.codigoPostal}
                         </Card.Subtitle>
-                            <h5 className="tituloProductos">Productos:</h5>
+                        <h5 className="tituloProductos">Productos:</h5>
                         {pedido.productos && Object.entries(pedido.productos).length > 0 ? (
                             Object.entries(pedido.productos).map(([nombre, cantidad]) => (
                                 <ListGroup.Item key={nombre}>
@@ -81,12 +82,24 @@ function DetallePedido() {
                         )}
                         <Card.Subtitle className="total">Total: {pedido.totalPrecio}€</Card.Subtitle>
                         <div>
-                        <Button className="botonSecundario" onClick={eliminarPedido}>Eliminar pedido</Button>
-                        <Link className="link" to={'/pedidos'}><Button className="botonMorado" >Volver</Button></Link>
+                            <Button className="botonSecundario" onClick={() => setShowModal(true)}>Eliminar pedido</Button>
+                            <Link className="link" to={'/pedidos'}><Button className="botonMorado" >Volver</Button></Link>
                         </div>
                     </Card.Body>
                 </Card>
             </Container>
+            <Modal show={showModal} centered className="custom-modal">
+                <Modal.Body >
+                    <Button className="cerrar" onClick={() => setShowModal(false)}>✖</Button>
+                    <div className="elementosModal">
+                        <h5 className="modal-title"> ¿Seguro que desea eliminar el pedido?</h5>
+                        <div className="botones">
+                            <Button className='botonModal' onClick={() => { eliminarPedido }}>Continuar</Button>
+                            <Button className='botonSecundario' onClick={() => { setShowModal(false) }}>Cancelar</Button>
+                        </div>
+                    </div>
+                </Modal.Body>
+            </Modal>
         </>
     )
 }
