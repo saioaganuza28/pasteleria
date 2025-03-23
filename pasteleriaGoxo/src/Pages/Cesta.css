@@ -1,4 +1,3 @@
-
 .modal-blur-background {
   position: fixed;
   top: 0;
@@ -8,6 +7,18 @@
   backdrop-filter: blur(8px);
   background: rgba(0, 0, 0, 0.3);
   z-index: 1040;
+}
+
+.productos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.botones {
+  margin: 2rem;
+  font-size: 1.5em;
 }
 
 .custom-modal .modal-content {
@@ -45,4 +56,54 @@
   font-size: 0.9rem;
   margin-top: 5px;
 }
-  
+
+.botonPedido {
+  background-color: #ed78ef;
+  color: azure;
+  border: none;
+  margin-left: 0rem;
+}
+
+.botonPedido:hover {
+  background-color: #f839cf !important;
+  color: azure;
+}
+
+.cerrar:hover {
+  background-color: #f8e7f9;
+  color: rgb(0, 0, 0) !important;
+}
+
+.cerrar {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  background: rgba(100, 98, 98, 0.2);
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 20%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.botonModal {
+  background-color: #7F57D0;
+  border: none;
+}
+.botonModal:hover{
+  background-color: #6d29e3 !important;
+}
+.total{
+  margin:1rem;
+  font-weight: bold;
+}
+.floating-label input {
+  background-color: transparent !important; /* Quita cualquier fondo blanco */
+  box-shadow: none !important; /* Evita bordes y sombras adicionales */
+  border: 1px solid #ccc; /* Asegúrate de que el borde sea consistente */
+}

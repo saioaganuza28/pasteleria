@@ -28,7 +28,7 @@ function App() {
 
 
   const handleClose = () => {
-    setAnchorEl(null);  // Cierra el popover
+    setAnchorEl(null);  
   };
   
   const actualizarLogin = (login, loginData) => {

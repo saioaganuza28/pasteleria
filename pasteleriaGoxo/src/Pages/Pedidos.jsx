@@ -27,7 +27,7 @@ function Pedidos() {
                 if (arrayPedidos.length > 0) {
                     setContenido(
                         <>
-                            <div>
+                            <div className='pedidos'>
                                 {arrayPedidos.map((elemento) => {
                                     return <Pedido key={elemento.id} pedido={elemento} auth={contextValue} />
                                 })}

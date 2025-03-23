@@ -1,0 +1,29 @@
+.selector-cantidad {
+    display: flex;
+    align-items: center;
+    border-radius: 25px; /* Ajusta si es necesario */
+    overflow: hidden;
+  }
+  
+  .selector-cantidad button {
+    background-color: #7F57D0 !important;
+    color: #ffffff !important;
+    border: none !important;
+    padding: 10px !important;
+  }
+  .selector-cantidad button:hover {
+    background-color: #6d29e3 !important;
+  }
+  
+  .selector-cantidad input {
+    text-align: center;
+    border: none;
+    width: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    outline: none;
+    background-color:#faf1f9 ;
+    margin-top: 12px;
+  }
+  

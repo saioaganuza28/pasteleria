@@ -1,45 +1,49 @@
 
 .producto {
-  background-color: #faf1f9; 
+  background-color: #faf1f9;
   border-radius: 10px;
   padding: 25px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin: 1rem;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  font-family: 'Playfair Display', serif; 
-  font-size: 1.1rem; 
+  transition: transform 0.2s ease-in, box-shadow 0.2s ease;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.5rem;
+  width: calc(33.33% - 20px); /* Ajusta el ancho de cada producto para que quepan 3 en una fila */
+  max-width: 30rem; /* Limita el tamaño máximo */
+  box-sizing: border-box;
+}
+.producto:hover {
+  transform: scale(1.03);
 }
 
 .producto img {
-  width: 300px; 
-  height: 300px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin: 0 auto 15px; 
+  height: 15rem;
+  object-fit: contain;
+  margin: 0 auto 15px;
   display: block;
 }
 
 .producto-title {
-  font-size: 2rem; 
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #7F57D0; 
+  color: #7F57D0;
   margin-top: 15px;
-  font-family: 'Playfair Display', serif; 
+  font-family: 'Playfair Display', serif;
 }
 
 .producto-description {
-  font-size: 1.1rem; 
-  color: #444; 
+  font-size: 1rem;
+  color: #444;
   margin: 10px 0;
-  font-family: 'Georgia', serif; 
-  font-style: italic; 
+  font-family: 'Georgia', serif;
+  font-style: italic;
 }
 
 
 .producto-rating {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   font-size: 1.4rem;
   margin-top: 10px;
 }
@@ -66,9 +70,12 @@
   transition: background-color 0.3s;
   font-family: 'Playfair Display', serif;
 }
+.cantidad{
+  font-size: 1.2rem;
+}
 
 .producto button:hover {
-  background-color: #6A4C9C;
+  background-color: #6d29e3 !important;
 }
 
 

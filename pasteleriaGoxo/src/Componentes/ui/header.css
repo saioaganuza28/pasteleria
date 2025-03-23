@@ -1,109 +1,156 @@
+.navbar-brand {
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: bold;
+}
 
-  .navbar-brand {
-    font-size: 1.5rem;
-    color: #fff;
-    font-weight: bold;
-  }
-  
-  .navbar-brand .logo-img {
-    width: 40px;
-    height: 20px;
-    margin-right: 10px;
-  }
-  
-  .nav-link {
-    color: #fff;
-    margin-right: 15px;
-    font-weight: 200;
-    text-decoration: none;
-  }
-  
-  .nav-link:hover {
-    color:#f1ffa4; 
-  }
-  
-  .cart-btn {
-    border: 1px solid #fff;
-    color: #fff;
-    padding: 5px 15px;
-    border-radius: 25px;
-    font-size: 1.2rem;
-  }
-  
-  .cart-btn:hover {
-    background-color: #f1ffa4;
-    border-color: #f1ffa4;
-    color: #000;
-  }
-  
+.navbar-brand .logo-img {
+  width: 40px;
+  height: 20px;
+  margin-right: 10px;
+}
 
-  .hero-section {
-    background-color: #f0e6f6; 
-    text-align: center;
-  }
-  
-  .hero-title {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #6c757d;
-  }
-  
-  .slogan {
-    font-size: 0.7rem;
-    font-weight: 300;
-    color: #6c757d;
-  }
+.nav-link {
+  color: #ffff;
+  margin-right: 15px;
+  font-weight: 200;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #f1ffa4;
+}
+
+.cart-btn {
+  font-size: 1rem;
+  padding: 4px 10px;
+  border: 1px solid #ffff;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 40px;
+  font-size: 1.2rem;
+}
+
+.cart-btn:hover {
+  background-color: #f1ffa4;
+  border-color: #f1ffa4;
+  color: #000;
+}
+
+
+.hero-section {
+  background-color: #f0e6f6;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #6c757d;
+}
+
+.slogan {
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: #6c757d;
+}
 
 .navbar-main {
-    background-color: #6c757d;
-    padding: 5px 0;
-  }
-  
-  .navbar-brand {
-    font-size: 1.2rem;
-  }
-  
-  .navbar-brand .logo-img {
-    width: 35px;
-    height: 35px;
-    margin-right: 8px;
-  }
-  
-  .nav-link {
-    font-size: 0.8rem; 
-    margin-right: 10px;
-  }
-  .logo-img {
-    width: 100px;       
-    height: 100px;      
-    border-radius: 50%; 
-    object-fit: cover;   
-  }
-  .cart-btn {
-    font-size: 1rem; 
-    padding: 4px 10px;
-  }
-  
-  .hero-title {
-    font-size: 2rem; /
-  }
-  
-  .slogan {
-    font-size: 1rem;
-  }
-  
-  .navbar .dropdown-menu {
-    background-color: #c77fdf;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .navbar .dropdown-item {
-    color: black;
-    font-size: 1rem;
-  }
-  
-  .navbar .dropdown-item:hover {
-    background-color: #b05dcb;
-  }
-  
+  background-color: #6c757d;
+  padding: 5px 0;
+}
+
+.navbar-brand {
+  font-size: 1.2rem;
+}
+
+.navbar-brand .logo-img {
+  width: 35px;
+  height: 35px;
+  margin-right: 8px;
+}
+
+.nav-link {
+  font-size: 0.8rem;
+  margin-right: 10px;
+}
+
+.logo-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+.hero-title {
+  font-size: 2rem;/
+}
+
+.slogan {
+  font-size: 1rem;
+}
+
+.navbar .dropdown-menu {
+  background-color: #f9eff8;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .dropdown-item {
+  color: black;
+  font-size: 1rem;
+}
+
+
+.logo-titulo {
+  color: #faf1f9;
+}
+
+.logo {
+  display: flex;
+}
+
+.navbar .nav-link,
+.navbar .dropdown-toggle {
+  color: white !important;
+}
+
+.navbar .nav-link:hover,
+.navbar .dropdown-toggle:hover {
+  color: #faf1f9 !important;
+}
+
+.navbar .dropdown-menu {
+  position: absolute !important;
+  top: 100%;
+  /* Para que se despliegue debajo */
+  left: 0;
+  z-index: 1050;
+  /* Para que esté sobre los demás elementos */
+  display: none;
+  /* Ocultarlo por defecto */
+}
+
+.navbar .dropdown:hover .dropdown-menu {
+  display: block;
+  /* Mostrar cuando se pase el mouse */
+}
+
+.navbar .dropdown-item {
+  color: rgb(130, 7, 152);
+  font-size: 1rem;
+  width: 100%;
+  padding: 10px 20px;
+  display: block;
+}
+
+.navbar .dropdown-item:hover {
+  background-color: #7F57D0;
+  color: white;
+}
+
+.carritoBoton {
+  display: flex;
+  gap: 0.5rem;
+}

@@ -1,4 +1,4 @@
-import './Login.css'
+import '../Login/Login.css'
 import { useState } from 'react'
 import axios from 'axios'
 import { Form, Modal, Button, FloatingLabel } from 'react-bootstrap';
@@ -50,10 +50,9 @@ function Login(props) {
 
   return (
     <Modal show={props.show} onHide={cerrarModal} centered className="custom-modal">
-      <div className="modal-blur-background" onClick={cerrarModal}></div>
       {enLogin ? (
-        <Modal.Body className="modal-content">
-          <Button className="close-btn" onClick={cerrarModal}>✖</Button>
+        <Modal.Body >
+          <Button className="cerrar" onClick={cerrarModal}>✖</Button>
           <h3 className="modal-title">¡Bienvenido de nuevo!</h3>
           <p className="modal-subtitle">Ingresa tus datos para acceder.</p>
 
@@ -69,13 +68,13 @@ function Login(props) {
               <p className="error">{errors.password?.message}</p>
             </FloatingLabel>
 
-            <Button variant="warning" type="submit" className="submit-btn">🔓 Iniciar Sesión</Button>
+            <Button variant="warning" type="submit" className="submit-btn botonInicioSesion">🔓 Iniciar Sesión</Button>
           </Form>
-          <Button onClick={() => setEnlogin(false)}>Registrarse</Button>
+          <Button className='botonRegistro' onClick={() => setEnlogin(false)}>Registrarse</Button>
         </Modal.Body>
       ) : (
-        <Modal.Body className="modal-content">
-          <Button className="close-btn" onClick={cerrarModal}>✖</Button>
+        <Modal.Body >
+          <Button className="cerrar" onClick={cerrarModal}>✖</Button>
           <h3 className="modal-title">¡Bienvenido!</h3>
           <p className="modal-subtitle">Ingresa tus datos para registrarte.</p>
 
@@ -91,9 +90,9 @@ function Login(props) {
               <p className="error">{errors.password?.message}</p>
             </FloatingLabel>
 
-            <Button variant="warning" type="submit" className="submit-btn">Registrarse</Button>
+            <Button variant="warning" type="submit" className="submit-btn botonRegistro">Registrarse</Button>
           </Form>
-          <Button onClick={() => setEnlogin(true)}>🔓 Iniciar Sesión</Button>
+          <Button className='botonInicioSesion' onClick={() => setEnlogin(true)}>🔓 Iniciar Sesión</Button>
         </Modal.Body>
       )}
     </Modal>

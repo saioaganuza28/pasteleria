@@ -83,20 +83,13 @@ body {
 .productos {
   margin-top: 30px;
   padding: 20px;
+  width: 50rem;
 }
 
-.producto {
-  text-align: center;
-  padding: 15px;
-  transition: transform 0.3s ease-in-out;
-  background-color: #f9ebff;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
+
 
 .producto img {
   width: 100%;
-  max-width: 250px; 
   height: 250px; 
   object-fit: contain;
   border-radius: 10px;
@@ -125,6 +118,12 @@ body {
 }
 
 .producto:hover {
-  transform: scale(1.1);
+  transform: scale(1.03);
 }
-
+.producto{
+  width: 50rem;
+}
+.icono{
+  background-color: #7F57D0;
+  border-radius: 0.5rem;
+}

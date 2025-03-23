@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button, InputGroup, FormControl } from 'react-bootstrap';
 import { useEffect } from 'react';
+import '../Componentes/CantidadSelector.css'
 
 function CantidadSelector({ cantidadInicial, onCantidadChange }) {
   const [cantidad, setCantidad] = useState(cantidadInicial);
@@ -11,7 +12,7 @@ function CantidadSelector({ cantidadInicial, onCantidadChange }) {
   const incrementar = () => {
     setCantidad(prev => {
       const nuevaCantidad = prev + 1;
-      onCantidadChange(nuevaCantidad); 
+      onCantidadChange(nuevaCantidad);
       return nuevaCantidad;
     });
   };
@@ -20,15 +21,15 @@ function CantidadSelector({ cantidadInicial, onCantidadChange }) {
     if (cantidad > 0) {
       setCantidad(prev => {
         const nuevaCantidad = prev - 1;
-        onCantidadChange(nuevaCantidad); 
+        onCantidadChange(nuevaCantidad);
         return nuevaCantidad;
       });
     }
   };
 
   return (
-    <InputGroup style={{ width: '150px' }}>
-      <Button variant="outline-secondary" onClick={decrementar}>−</Button>
+    <InputGroup className="selector-cantidad" style={{ width: '150px' }}>
+      <Button onClick={decrementar}>−</Button>
       <FormControl
         value={cantidad}
         onChange={(e) => {
@@ -36,10 +37,10 @@ function CantidadSelector({ cantidadInicial, onCantidadChange }) {
           setCantidad(value);
           onCantidadChange(value);
         }}
-        className="text-center"
       />
-      <Button variant="outline-secondary" onClick={incrementar}>+</Button>
+      <Button onClick={incrementar}>+</Button>
     </InputGroup>
+
   );
 }
 

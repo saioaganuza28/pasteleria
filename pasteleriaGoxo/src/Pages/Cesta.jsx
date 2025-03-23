@@ -20,9 +20,18 @@ function Cesta(props) {
   const [totalPrecio, setTotalPrecio] = useState('')
 
   const schema = yup.object().shape({
-    nombreCompleto: yup.string().required("Introduzca su nombre completo"),
-    direccion: yup.string().required("Introduzca su dirección de envío"),
-    codigoPostal: yup.string().min(5, "Debe tener al menos 5 caracteres").required("Introduzca el código postal")
+    nombreCompleto: yup
+      .string()
+      .required("Introduzca su nombre completo"),
+    direccion: yup
+      .string()
+      .required("Introduzca su dirección de envío"),
+    codigoPostal: yup
+      .string()
+      .matches(/^\d+$/, "El código postal debe contener solo números positivos")
+      .min(5, "Debe tener 5 caracteres")
+      .max(5, "Debe tener 5 caracteres")
+      .required("Introduzca el código postal"),
   });
 
   const { register, handleSubmit, formState: { errors } } = useForm({
@@ -32,13 +41,13 @@ function Cesta(props) {
   const consultarCesta = () => {
     axios.get('https://goxopasteleria-default-rtdb.europe-west1.firebasedatabase.app/' + contextValue.loginData.uid + '.json')
       .then((response) => {
-        if(response.data !=null){
+        if (response.data != null) {
           const resultado = Object.values(response.data).map((producto) => ({
             nombre: producto.clave,
             cantidad: producto.cantidad
           }));
           setProductosCesta(resultado)
-        }else{
+        } else {
           const resultado = []
           setProductosCesta(resultado)
         }
@@ -83,10 +92,15 @@ function Cesta(props) {
     if (arrayProductos.length > 0) {
       setContenido(
         <>
-          <Productos productos={arrayProductos} cesta={true} consultarCesta={consultarCesta} />
-          <div>Total: {totalPrecio}€</div>
-          <Button onClick={()=> {comenzarProceso()}}>Realizar pedido</Button>
-        </>)
+          <div className='productos'>
+            <Productos productos={arrayProductos} cesta={true} consultarCesta={consultarCesta} />
+          </div>
+          <div className='botones'>
+            <div>Total: {totalPrecio}€</div>
+            <Button className='botonPedido' onClick={() => { comenzarProceso() }}>Realizar pedido</Button>
+          </div>
+        </>
+      )
     } else if (contextValue.login) {
       setContenido(
         <>
@@ -141,49 +155,48 @@ function Cesta(props) {
 
 
   return (
-    <Container className="py-5">
+    <>
       <Modal show={showModal} centered className="custom-modal">
-        <div className="modal-blur-background" onClick={cerrarModal}></div>
         {confirmado ?
-          (<Modal.Body className="modal-content">
-            <Button className="close-btn" onClick={cerrarModal}>✖</Button>
+          (<Modal.Body >
+            <Button className="cerrar" onClick={cerrarModal}>✖</Button>
             <p className="modal-subtitle">Rellena tus datos para completar el pedido.</p>
             <Form onSubmit={handleSubmit(realizarPedido)}>
-              <label>Nombre completo *</label>
-              <FloatingLabel controlId="Nombre completo" className="mb-3">
+              <h5>Nombre completo *</h5>
+              <FloatingLabel controlId="Nombre completo" >
                 <Form.Control type="text" {...register("nombreCompleto")} />
                 <p className="error">{errors.nombreCompleto?.message}</p>
               </FloatingLabel>
-              <label>Dirección de envío *</label>
-              <FloatingLabel controlId="direccion" className="mb-3">
+              <h5>Dirección de envío *</h5>
+              <FloatingLabel controlId="direccion" >
                 <Form.Control type="text" {...register("direccion")} />
                 <p className="error">{errors.direccion?.message}</p>
               </FloatingLabel>
-              <label>Código postal *</label>
-              <FloatingLabel controlId="codigoPostal" className="mb-3">
+              <h5>Código postal *</h5>
+              <FloatingLabel controlId="codigoPostal" >
                 <Form.Control type="number"  {...register("codigoPostal")} />
                 <p className="error">{errors.codigoPostal?.message}</p>
               </FloatingLabel>
-              <Button variant="warning" type="submit" className="submit-btn">Realizar pedido</Button>
+              <Button type="submit" className="submit-btn botonModal">Realizar pedido</Button>
             </Form>
           </Modal.Body>
           ) : (
-            <Modal.Body className="modal-content">
-              <Button className="close-btn" onClick={cerrarModal}>✖</Button>
-              <label>Resumen del pedido</label>
+            <Modal.Body >
+              <Button className="cerrar" onClick={cerrarModal}>✖</Button>
+              <h4 className="modal-title"> Resumen del pedido</h4>
               {arrayProductos.map((producto) => (
                 <div key={producto.id}>
                   {producto.nombre}: {producto.cantidad}
                 </div>
               ))}
-              <div>Total: {totalPrecio}€ </div>
-              <Button variant="warning" onClick={() => { setConfirmado(true) }}>CONTINUAR</Button>
+              <h5 className='total'>Total: {totalPrecio}€ </h5>
+              <Button className='botonModal' onClick={() => { setConfirmado(true) }}>Continuar</Button>
             </Modal.Body>
           )
         }
       </Modal>
       {contenido}
-    </Container >
+    </>
   );
 }
 

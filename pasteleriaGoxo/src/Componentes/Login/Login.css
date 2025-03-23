@@ -1,49 +1,40 @@
+Button{
+  margin: 0.5rem;
+}
+.botonInicioSesion{
+  background-color: #7F57D0;
+  border: none;
+}
+.botonInicioSesion:hover{
+  background-color: #6d29e3 !important;
+}
 
-.modal-blur-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(8px);
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 1040;
-  }
-
-  .custom-modal .modal-content {
-    position: fixed;
-    background: #fff6f9;
-    border-radius: 12px;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    padding: 30px;
-    text-align: center;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    z-index: 1050; 
-    width: 90%;
-    max-width: 400px;
-  }
-  
-
-  .close-btn {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #6c757d;
-  }
-  
-  .close-btn:hover {
-    color: #ff6b81;
-  }
-
-  .error {
-    color: red;
-    font-size: 0.9rem;
-    margin-top: 5px;
-  }
-  
+.botonRegistro{
+  background-color: #ed78ef;
+  color:azure;
+  border: none;
+}
+.botonRegistro:hover{
+  background-color: #f839cf !important;
+  color:azure;
+}
+.cerrar:hover{
+background-color: #f8e7f9;
+color: rgb(0, 0, 0) !important;
+}
+.cerrar {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  background: rgba(100, 98, 98, 0.2);
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 20%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}

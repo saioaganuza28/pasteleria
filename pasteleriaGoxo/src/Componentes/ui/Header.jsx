@@ -24,7 +24,7 @@ function Header(props) {
               className="logo-img"
               alt="logo"
             />
-            Pastelitos Store
+            <div className='logo-titulo'>Pastelitos Store</div>
           </Navbar.Brand>
           <Nav className="ml-auto navbar-links">
             {/* Dropdown Menu */}
@@ -43,15 +43,21 @@ function Header(props) {
               </Dropdown.Menu>
             </Dropdown>
 
-            <Link to="/sobre-nosotros" className="nav-link">Sobre Nosotros</Link>
+            
           </Nav>
+          <Link to="/sobre-nosotros" className="nav-link">Sobre Nosotros</Link>
 
-          <Link to="/cesta" className="nav-link">
-            <Button variant="outline-light" className="cart-btn">🛒</Button>
-          </Link>
+          <div className='carritoBoton'>
+            <Link to="/cesta" className="nav-link">
+              <Button variant="outline-light" className="cart-btn">🛒</Button>
+            </Link>
 
-          {!contextValue.login && <Button onClick={iniciarSesion}>Iniciar sesión</Button>}
-          {contextValue.login && <Button onClick={cerrarSesion}>Cerrar sesión</Button>}
+            <div>
+              {!contextValue.login && <Button onClick={iniciarSesion}>Iniciar sesión</Button>}
+              {contextValue.login && <Button onClick={cerrarSesion}>Cerrar sesión</Button>}
+            </div>
+
+          </div>
         </Container>
       </Navbar>
 

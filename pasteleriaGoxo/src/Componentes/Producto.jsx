@@ -53,28 +53,26 @@ function Producto(props) {
     };
 
     return (
-        <>
-            <Row className="producto">
-                {/* Imagen del producto */}
-                <img src={props.producto.imagen} alt={props.producto.nombre} className="producto-img" />
-                {/* Nombre del producto */}
-                <div className="producto-title">{props.producto.nombre}</div>
-                {/* Descripción del producto */}
-                <div className="producto-description">{props.producto.descripcion}</div>
-                {/* Valoración */}
-                <div className="producto-rating">
-                    {[...Array(props.producto.valoracion)].map((_, i) => <span key={i} className="star">★</span>)}
-                </div>
-                {/* Precio del producto */}
-                <div className="producto-price">{props.producto.precio}€</div>
-                {/* Si está en la cesta, mostrar la cantidad */}
-                {props.cesta && <div>Cantidad: {props.producto.cantidad}</div>}
-                {/* Botón para eliminar del carrito */}
-                {props.cesta && <Button onClick={eliminarDeLaCesta}>🗑</Button>}
-            </Row>
+        <Row className="producto">
+            {/* Imagen del producto */}
+            <img src={props.producto.imagen} alt={props.producto.nombre} className="producto-img" />
+            {/* Nombre del producto */}
+            <div className="producto-title">{props.producto.nombre}</div>
+            {/* Descripción del producto */}
+            <div className="producto-description">{props.producto.descripcion}</div>
+            {/* Valoración */}
+            <div className="producto-rating">
+                {[...Array(props.producto.valoracion)].map((_, i) => <span key={i} className="star">★</span>)}
+            </div>
+            {/* Precio del producto */}
+            <div className="producto-price">{props.producto.precio}€</div>
             {/* Selector de cantidad si no está en la cesta */}
             {!props.cesta && <CantidadSelector cantidadInicial={cantidadInicialProducto} onCantidadChange={handleCantidadChange} />}
-        </>
+            {/* Si está en la cesta, mostrar la cantidad */}
+            {props.cesta && <div className='cantidad'>Cantidad: {props.producto.cantidad}</div>}
+            {/* Botón para eliminar del carrito */}
+            {props.cesta && <Button onClick={eliminarDeLaCesta}>🗑</Button>}
+        </Row>
     );
 }
 
