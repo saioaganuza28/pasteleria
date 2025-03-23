@@ -67,7 +67,7 @@ function Producto(props) {
             {/* Precio del producto */}
             <div className="producto-price">{props.producto.precio}€</div>
             {/* Selector de cantidad si no está en la cesta */}
-            {!props.cesta && <CantidadSelector cantidadInicial={cantidadInicialProducto} onCantidadChange={handleCantidadChange} />}
+            {!props.cesta && <CantidadSelector cantidadInicial={cantidadInicialProducto} onCantidadChange={handleCantidadChange} login={props.auth.login} />}
             {/* Si está en la cesta, mostrar la cantidad */}
             {props.cesta && <div className='cantidad'>Cantidad: {props.producto.cantidad}</div>}
             {/* Botón para eliminar del carrito */}
