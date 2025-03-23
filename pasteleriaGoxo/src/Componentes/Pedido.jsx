@@ -9,7 +9,7 @@ function Pedido(props) {
         <>
             <Container className="mt-4">
                 <Card>
-                    <Card.Body>
+                    <Card.Body className="elementos">
                         <Card.Title>Pedido {props.pedido.numeroPedido}</Card.Title>
                         <Card.Subtitle>Fecha: {new Date(props.pedido.fecha).toLocaleDateString("es-ES", {
                             day: "2-digit",
