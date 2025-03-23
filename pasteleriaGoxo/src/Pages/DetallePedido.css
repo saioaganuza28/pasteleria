@@ -1,0 +1,38 @@
+.botonSecundario {
+    background-color: #ed78ef !important;
+    color: azure;
+    border: none;
+}
+.botonSecundario:hover {
+    background-color: #f839cf !important;
+    color: azure;
+}
+.link{
+    text-decoration: none !important;
+    color:inherit !important;
+}
+.container{
+    margin: 1rem;
+}
+.elementos{
+    display: flex;
+    flex-direction: column;
+    margin:0.5rem;
+    gap:0.5rem;
+}
+.total{
+    margin-left: 0rem !important;
+}
+.tituloProductos{
+    color: #7F57D0;
+    font-weight: bold;
+}
+.botonMorado {
+    margin-left: 0rem;
+    background-color: #7F57D0;
+    border: none;
+}
+
+.botonMorado:hover {
+    background-color: #6d29e3 !important;
+}

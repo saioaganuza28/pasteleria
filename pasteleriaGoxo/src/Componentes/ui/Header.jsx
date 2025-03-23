@@ -53,8 +53,8 @@ function Header(props) {
             </Link>
 
             <div>
-              {!contextValue.login && <Button onClick={iniciarSesion}>Iniciar sesión</Button>}
-              {contextValue.login && <Button onClick={cerrarSesion}>Cerrar sesión</Button>}
+              {!contextValue.login && <Button className='botonSecundario' onClick={iniciarSesion}>Iniciar sesión</Button>}
+              {contextValue.login && <Button className='botonSecundario' onClick={cerrarSesion}>Cerrar sesión</Button>}
             </div>
 
           </div>

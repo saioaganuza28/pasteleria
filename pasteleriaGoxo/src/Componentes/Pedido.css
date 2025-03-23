@@ -1,12 +1,5 @@
-Button {
-    margin-left: 0rem !important;
-    background-color: #7F57D0 !important;
-    border: none !important;
-    max-width: 10rem;;
-}
-
-Button:hover {
-    background-color: #6d29e3 !important;
+.botonMorado{
+    max-width: 10rem !important;
 }
 
 .link{

@@ -1,9 +1,13 @@
-Button {
+.botonMorado {
     margin-left: 0rem;
     background-color: #7F57D0;
     border: none;
 }
 
-Button:hover {
+.botonMorado:hover {
     background-color: #6d29e3 !important;
+}
+.texto{
+    display: flex;
+    flex-direction: column;
 }

@@ -19,7 +19,7 @@ function Pedido(props) {
                         <Card.Subtitle className="mb-2 text-muted">
                             Cantidad de productos: {props.pedido.cantidadProductos}
                         </Card.Subtitle>
-                        <Button ><Link className="link" to={`/pedido/detalle/${props.pedido.id}`}>Detalle pedido</Link></Button>
+                        <Link className="link" to={`/pedido/detalle/${props.pedido.id}`}><Button className="botonMorado">Detalle pedido</Button></Link>
                     </Card.Body>
                 </Card>
             </Container>

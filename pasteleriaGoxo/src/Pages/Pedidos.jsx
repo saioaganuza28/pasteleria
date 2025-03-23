@@ -37,12 +37,12 @@ function Pedidos() {
                         </>)
                 } else {
                     setContenido(
-                        <>
-                            No ha realizado ningún pedido, ¡vaya a comprar!
+                        <div className='texto'>
+                            <div>No ha realizado ningún pedido, ¡vaya a comprar!</div>
                             <Link to="/productos" className="nav-link">
-                                <Button >Comprar</Button>
+                                <Button className='botonMorado' >Comprar</Button>
                             </Link>
-                        </>)
+                        </div>)
                 }
             })
             .catch((error) => { console.log(error) })

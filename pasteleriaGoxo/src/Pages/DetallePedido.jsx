@@ -6,6 +6,7 @@ import { Link } from 'react-router';
 import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
+import './DetallePedido.css'
 
 
 function DetallePedido() {
@@ -37,7 +38,11 @@ function DetallePedido() {
                         nombreCompleto: pedidoData.nombreCompleto,
                         direccion: pedidoData.direccion,
                         codigoPostal: pedidoData.codigoPostal,
-                        fecha: pedidoData.fecha,
+                        fecha: new Date(pedidoData.fecha).toLocaleDateString("es-ES", {
+                            day: "2-digit",
+                            month: "long",
+                            year: "numeric",
+                        }),
                         totalPrecio: pedidoData.totalPrecio,
                         productos: pedidoData.productos,
                     };
@@ -54,19 +59,17 @@ function DetallePedido() {
 
     return (
         <>
-            <Container className="mt-4">
+            <Container className="mt-4 container">
                 <Card>
-                    <Card.Body>
-                        <Card.Title>Resumen del pedido</Card.Title>
+                    <Card.Body className="elementos">
+                        <Card.Title><h4>Resumen del pedido</h4></Card.Title>
                         <Card.Subtitle>Nombre completo: {pedido.nombreCompleto}</Card.Subtitle>
                         <Card.Subtitle>Fecha: {pedido.fecha}</Card.Subtitle>
                         <Card.Subtitle>Dirección: {pedido.direccion}</Card.Subtitle>
                         <Card.Subtitle className="mb-2 text-muted">
                             Código Postal: {pedido.codigoPostal}
                         </Card.Subtitle>
-                        <Card.Text>
-                            <strong>Productos:</strong>
-                        </Card.Text>
+                            <h5 className="tituloProductos">Productos:</h5>
                         {pedido.productos && Object.entries(pedido.productos).length > 0 ? (
                             Object.entries(pedido.productos).map(([nombre, cantidad]) => (
                                 <ListGroup.Item key={nombre}>
@@ -76,9 +79,11 @@ function DetallePedido() {
                         ) : (
                             <ListGroup.Item>No hay productos en el pedido.</ListGroup.Item>
                         )}
-                        <Card.Subtitle>Total: {pedido.totalPrecio}€</Card.Subtitle>
-                        <Button onClick={eliminarPedido}>ELIMINAR PEDIDO</Button>
-                        <Button ><Link to={'/pedidos'}>VOLVER</Link></Button>
+                        <Card.Subtitle className="total">Total: {pedido.totalPrecio}€</Card.Subtitle>
+                        <div>
+                        <Button className="botonSecundario" onClick={eliminarPedido}>Eliminar pedido</Button>
+                        <Link className="link" to={'/pedidos'}><Button className="botonMorado" >Volver</Button></Link>
+                        </div>
                     </Card.Body>
                 </Card>
             </Container>
