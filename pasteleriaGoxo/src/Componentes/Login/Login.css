@@ -35,6 +35,7 @@
     font-size: 1.5rem;
     cursor: pointer;
     color: #6c757d;
+    margin: -13px;
   }
   
   .close-btn:hover {
@@ -45,5 +46,9 @@
     color: red;
     font-size: 0.9rem;
     margin-top: 5px;
+  }
+
+  .submit-btn{
+    margin: 10px;
   }
   
