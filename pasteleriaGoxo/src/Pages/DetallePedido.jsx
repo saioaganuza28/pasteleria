@@ -14,6 +14,13 @@ function DetallePedido() {
     const [productosFirebase, setProductosFirebase] = useState([]);
     const contextValue = useContext(AutContext);
 
+    // Función para formatear la fecha en formato dd/mm/aaaa hh:mm
+    const formatearFecha = (fecha) => {
+        const opciones = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' };
+        const fechaFormateada = new Date(fecha).toLocaleString('es-ES', opciones);
+        return fechaFormateada;
+    };
+
     // Esta función busca el producto dentro de productosFirebase y devuelve la imagen correspondiente.
     const obtenerImagenProducto = (productoNombre) => {
         const producto = productosFirebase.find(p => p.nombre === productoNombre);
@@ -80,10 +87,13 @@ function DetallePedido() {
             <Card>
                 <Card.Body>
                     <Card.Title className="titulo">Resumen del Pedido</Card.Title>
-                    <Card.Subtitle className="mb-2">Nombre completo: {pedido.nombreCompleto}</Card.Subtitle>
-                    <Card.Subtitle className="mb-2">Fecha: {pedido.fecha}</Card.Subtitle>
-                    <Card.Subtitle className="mb-2">Dirección: {pedido.direccion}</Card.Subtitle>
-                    <Card.Subtitle className="mb-2 text-muted">Código Postal: {pedido.codigoPostal}</Card.Subtitle>
+                    <Card.Subtitle className="mb-2"><strong>Nombre completo:</strong> {pedido.nombreCompleto}</Card.Subtitle>
+
+                    {/* Mostrar la fecha con el formato deseado */}
+                    <Card.Subtitle className="mb-2"><strong>Fecha:</strong> {formatearFecha(pedido.fecha)}</Card.Subtitle>
+                    
+                    <Card.Subtitle className="mb-2"><strong>Dirección:</strong> {pedido.direccion}</Card.Subtitle>
+                    <Card.Subtitle className="mb-2 text-muted"><strong>Código Postal:</strong> {pedido.codigoPostal}</Card.Subtitle>
                     <Card.Text><strong>Productos:</strong></Card.Text>
 
                     {/* Contenedor de productos en cuadrícula */}
@@ -117,6 +127,7 @@ function DetallePedido() {
 }
 
 export default DetallePedido;
+
 
 
 

@@ -1,120 +1,121 @@
-/* Fondo general */
 .detalle-pedido-container {
-    background-color: #f4e1ff;
-    background-image: radial-gradient(white 10%, transparent 10%);
-    background-size: 30px 30px;
-    font-family: 'Arial', sans-serif;
-    margin-bottom: 30px;
-  }
-  
-  /* Estilo de la tarjeta */
-  .card {
-    background-color: #faf1f9;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 2rem;
-  }
-  
-  /* Título de la tarjeta */
-  .card-title {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #7F57D0;
-    font-family: 'Georgia', serif;
-    text-align: center;
-  }
-  
-  /* Subtítulos dentro de la tarjeta */
-  .card-subtitle {
-    font-size: 1.2rem;
-    color: #555;
-    margin-top: 10px;
-    font-family: 'Georgia', serif;
-  }
-  
-  /* Contenedor de productos en cuadrícula */
-  .productos-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
-    gap: 15px; /* Espacio entre los productos */
-    margin-top: 20px;
-  }
-  
-  .producto-item {
-    background-color: #f9ebff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  .producto-item img {
-    width: 100%;
-    height: 100px;
-    object-fit: contain;
-    border-radius: 8px;
-  }
-  
-  .producto-info h5 {
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #7F57D0;
-  }
-  
-  .producto-info p {
-    font-size: 1rem;
-    color: #444;
-  }
-  
-  /* Estilos para los textos de Pedido, Total, Subtotal */
-  .detalle-pedido-texto,
-  .detalle-pedido-total,
-  .subtotal {
-    font-size: 1.2rem;
-    color: #444;
-    font-family: 'Georgia', serif;
-    margin-top: 15px;
-  }
-  
-  /* Estilo de los subtítulos como Total y Pedido */
-  .detalle-pedido-total {
-    font-size: 1.4rem;
-    color: #FFC107;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-  
-  /* Botones */
-  button {
-    background-color: #7F57D0;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 25px;
-    border: none;
-    font-size: 1.2rem;
-    margin-top: 15px;
-    transition: background-color 0.3s;
-    font-family: 'Playfair Display', serif;
-    width: auto;
-    display: block;
-  }
-  
-  button:hover {
-    background-color: #6A4C9C;
-  }
-  
-  button.ms-2 {
-    background-color: #6A4C9C;
-  }
-  
-  button.ms-2:hover {
-    background-color: #7F57D0;
-  }
-  
-  button a {
-    color: white;
-    text-decoration: none;
-  }
+  background-color: #f4e1ff;
+  background-image: radial-gradient(white 10%, transparent 10%);
+  background-size: 30px 30px;
+  font-family: 'Arial', sans-serif;
+  margin-bottom: 30px;
+}
+
+.card {
+  background-color: #faf1f9;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+}
+
+.card-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #7F57D0;
+  font-family: 'Georgia', serif;
+  text-align: center;
+}
+
+.card-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #7F57D0;
+  font-family: 'Georgia', serif;
+  text-align: left;
+}
+
+.card-subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 10px;
+  font-family: 'Georgia', serif;
+}
+
+.productos-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.producto-item {
+  background-color: #f9ebff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.producto-item img {
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.producto-info h5 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #7F57D0;
+}
+
+.producto-info p {
+  font-size: 1rem;
+  color: #444;
+}
+
+.detalle-pedido-texto,
+.detalle-pedido-total,
+.subtotal {
+  font-size: 1.2rem;
+  color: #444;
+  font-family: 'Georgia', serif;
+  margin-top: 15px;
+}
+
+.detalle-pedido-total {
+  font-size: 1.4rem;
+  color: #FFC107;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+button {
+  background-color: #7F57D0;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: none;
+  font-size: 1.2rem;
+  margin-top: 15px;
+  transition: background-color 0.3s;
+  font-family: 'Playfair Display', serif;
+  width: auto;
+  display: block;
+}
+
+button:hover {
+  background-color: #6A4C9C;
+}
+
+button.ms-2 {
+  background-color: #6A4C9C;
+}
+
+button.ms-2:hover {
+  background-color: #7F57D0;
+}
+
+button a {
+  color: white;
+  text-decoration: none;
+}
+
   
   

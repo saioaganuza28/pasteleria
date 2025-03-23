@@ -1,0 +1,55 @@
+
+.pedido-container {
+    background-color: #f4e1ff;
+    background-image: radial-gradient(white 10%, transparent 10%);
+    background-size: 30px 30px;
+    font-family: 'Arial', sans-serif;
+    padding: 30px 0;
+  }
+
+  .pedido-card {
+    background-color: #faf1f9;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    font-family: 'Georgia', serif;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .pedido-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #7F57D0;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .pedido-subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 10px;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+  }
+
+  .detalle-btn {
+    background-color: #7F57D0;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: none;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+    font-family: 'Playfair Display', serif;
+    margin-top: 20px;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .detalle-btn:hover {
+    background-color: #6A4C9C;
+  }
+  
