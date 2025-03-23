@@ -9,7 +9,7 @@
   transition: transform 0.2s ease-in, box-shadow 0.2s ease;
   font-family: 'Playfair Display', serif;
   font-size: 0.5rem;
-  max-width: 30rem;
+  max-width: 25rem;
   box-sizing: border-box;
 }
 
