@@ -26,7 +26,6 @@ function Home() {
             .catch((error) => { console.log(error) });
     }, []);
     function ProductosCarrusel({ productos }) {
-        // Divide los productos en grupos de 3
         const grupos = [];
         for (let i = 0; i < productos.length; i += 3) {
             grupos.push(productos.slice(i, i + 3));
@@ -34,7 +33,6 @@ function Home() {
     }
         return (
             <div className="home-container">
-                {/* Sección modificada de "Nuestra Historia" en lugar de "Bienvenidos a..." */}
                 <div className="historia">
                     <div className="historia-texto">
                         <h3 className="titulo-historia">Nuestra Historia</h3>

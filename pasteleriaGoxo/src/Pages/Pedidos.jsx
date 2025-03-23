@@ -25,7 +25,6 @@ function Pedidos() {
                     cantidadProductos: Object.values(pedido.productos).reduce((acc, cantidad) => acc + cantidad, 0)
                   });
                 }
-                console.log(arrayPedidos)
                 if (arrayPedidos.length > 0) {
                     setContenido(
                         <>
