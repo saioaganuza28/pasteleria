@@ -21,6 +21,10 @@
   font-size: 1.5em;
 }
 
+.espacio{
+ padding: 5rem;
+}
+
 .custom-modal .modal-content {
   position: fixed;
   background: #fff6f9;
@@ -92,6 +96,7 @@
 }
 
 .botonModal {
+  margin-left: 0rem;
   background-color: #7F57D0;
   border: none;
 }
