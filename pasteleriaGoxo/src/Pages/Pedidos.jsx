@@ -2,6 +2,7 @@ import { Button, Container, Modal, Form, FloatingLabel, Row } from 'react-bootst
 import { useContext, useState, useEffect } from 'react';
 import AutContext from '../../store/AutContext';
 import axios from 'axios';
+import './Pedidos.css';
 import { Link } from 'react-router';
 import Pedido from '../Componentes/Pedido';
 import './Pedidos.css'
