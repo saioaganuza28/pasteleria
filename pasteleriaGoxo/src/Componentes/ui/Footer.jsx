@@ -8,7 +8,7 @@ function Footer() {
         <Container className="footer-container">
           {/* Información de la tienda */}
           <div className="footer-section">
-            <h5>Pastelitos Store</h5>
+            <h5>Pastelería Goxo</h5>
             <p>Dirección: Calle Dulce, 123</p>
             <p>Tel: +34 600 123 456</p>
           </div>
@@ -24,7 +24,7 @@ function Footer() {
               style={{border: 0}}
               allowFullScreen=""
               loading="lazy"
-              title="Ubicación de Pastelitos Store"
+              title="Ubicación de Pastelería Goxo"
             ></iframe>
           </div>
         </div>
@@ -46,7 +46,7 @@ function Footer() {
             </div>
           </div>
         </Container>
-        <p className="footer-bottom-text">© 2024 Pastelitos Store - Todos los derechos reservados</p>
+        <p className="footer-bottom-text">© 2024 Pastelería Goxo- Todos los derechos reservados</p>
       </footer>
     )
 }

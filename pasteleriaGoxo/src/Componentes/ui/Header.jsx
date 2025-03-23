@@ -24,7 +24,7 @@ function Header(props) {
               className="logo-img"
               alt="logo"
             />
-            <div className='logo-titulo'>Pastelitos Store</div>
+            <div className='logo-titulo'>Pastelería Goxo</div>
           </Navbar.Brand>
           <Nav className="ml-auto navbar-links">
             {/* Dropdown Menu */}
