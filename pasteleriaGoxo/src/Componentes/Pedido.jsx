@@ -1,6 +1,6 @@
-import { Navbar, Nav, Container, Button, Card, Row, Col, Badge, ListGroup } from "react-bootstrap";
+import { Container, Button, Card } from "react-bootstrap";
 
-import './Producto.css'
+import './Pedido.css'
 import { Link } from 'react-router';
 
 function Pedido(props) {
@@ -11,11 +11,15 @@ function Pedido(props) {
                 <Card>
                     <Card.Body>
                         <Card.Title>Pedido {props.pedido.numeroPedido}</Card.Title>
-                        <Card.Subtitle>Fecha: {props.pedido.fecha}</Card.Subtitle>
+                        <Card.Subtitle>Fecha: {new Date(props.pedido.fecha).toLocaleDateString("es-ES", {
+                            day: "2-digit",
+                            month: "long",
+                            year: "numeric",
+                        })}</Card.Subtitle>
                         <Card.Subtitle className="mb-2 text-muted">
                             Cantidad de productos: {props.pedido.cantidadProductos}
                         </Card.Subtitle>
-                        <Button ><Link to={`/pedido/detalle/${props.pedido.id}`}>DETALLE PEDIDO</Link></Button>
+                        <Button ><Link className="link" to={`/pedido/detalle/${props.pedido.id}`}>Detalle pedido</Link></Button>
                     </Card.Body>
                 </Card>
             </Container>

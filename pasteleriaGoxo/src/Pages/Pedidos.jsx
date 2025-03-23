@@ -4,6 +4,7 @@ import AutContext from '../../store/AutContext';
 import axios from 'axios';
 import { Link } from 'react-router';
 import Pedido from '../Componentes/Pedido';
+import './Pedidos.css'
 
 function Pedidos() {
     const [contenido, setContenido] = useState('');
@@ -24,6 +25,7 @@ function Pedidos() {
                     cantidadProductos: Object.values(pedido.productos).reduce((acc, cantidad) => acc + cantidad, 0)
                   });
                 }
+                console.log(arrayPedidos)
                 if (arrayPedidos.length > 0) {
                     setContenido(
                         <>
@@ -38,7 +40,7 @@ function Pedidos() {
                         <>
                             No ha realizado ningún pedido, ¡vaya a comprar!
                             <Link to="/productos" className="nav-link">
-                                <Button className="cart-btn">Comprar</Button>
+                                <Button >Comprar</Button>
                             </Link>
                         </>)
                 }

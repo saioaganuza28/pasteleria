@@ -121,7 +121,6 @@ function Cesta(props) {
     const productos = {
       ...arrayProductos.reduce((acc, producto) => {
         acc[producto.nombre] = producto.cantidad;
-        acc["imagen"] = producto.imagen;
         return acc;
       }, {})
     }

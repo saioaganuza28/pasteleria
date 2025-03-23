@@ -1,0 +1,14 @@
+Button {
+    margin-left: 0rem !important;
+    background-color: #7F57D0 !important;
+    border: none !important;
+}
+
+Button:hover {
+    background-color: #6d29e3 !important;
+}
+
+.link{
+    text-decoration: none !important;
+    color:inherit !important;
+}
