@@ -23,11 +23,13 @@ function DetallePedido() {
 
         axios.delete(url)
             .then(() => {
+                setShowModal(false)
                 navigate("/pedidos");
             })
             .catch((error) => {
                 console.error("Error al actualizar producto:", error);
             });
+
     };
 
     useEffect(() => {
@@ -81,7 +83,7 @@ function DetallePedido() {
                             <ListGroup.Item>No hay productos en el pedido.</ListGroup.Item>
                         )}
                         <Card.Subtitle className="total">Total: {pedido.totalPrecio}€</Card.Subtitle>
-                        <div>
+                        <div className="botonesDetalle">
                             <Button className="botonSecundario" onClick={() => setShowModal(true)}>Eliminar pedido</Button>
                             <Link className="link" to={'/pedidos'}><Button className="botonMorado" >Volver</Button></Link>
                         </div>
@@ -94,7 +96,7 @@ function DetallePedido() {
                     <div className="elementosModal">
                         <h5 className="modal-title"> ¿Seguro que desea eliminar el pedido?</h5>
                         <div className="botones">
-                            <Button className='botonModal' onClick={() => { eliminarPedido }}>Continuar</Button>
+                            <Button className='botonModal' onClick={() =>  eliminarPedido() }>Continuar</Button>
                             <Button className='botonSecundario' onClick={() => { setShowModal(false) }}>Cancelar</Button>
                         </div>
                     </div>
