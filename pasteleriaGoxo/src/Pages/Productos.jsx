@@ -3,7 +3,7 @@ import Producto from '../Componentes/Producto';
 import { useContext, useEffect, useState } from 'react';
 import AutContext from '../../store/AutContext';
 import axios from 'axios';
-import '../Pages/Productos.css'
+import './Productos.css'
 
 
 function Productos(props) {
@@ -24,7 +24,7 @@ function Productos(props) {
     }
   }, [contextValue.loginData.uid])
   return (
-    <div className='productos'>
+    <div className='prod'>
       {props.productos.map((elemento) => {
         return <Producto
           key={elemento.id}

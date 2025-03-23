@@ -9,10 +9,10 @@
   transition: transform 0.2s ease-in, box-shadow 0.2s ease;
   font-family: 'Playfair Display', serif;
   font-size: 0.5rem;
-  width: calc(33.33% - 20px); /* Ajusta el ancho de cada producto para que quepan 3 en una fila */
-  max-width: 30rem; /* Limita el tamaño máximo */
+  max-width: 30rem;
   box-sizing: border-box;
 }
+
 .producto:hover {
   transform: scale(1.03);
 }
@@ -21,7 +21,6 @@
   height: 15rem;
   object-fit: contain;
   margin: 0 auto 15px;
-  display: block;
 }
 
 .producto-title {

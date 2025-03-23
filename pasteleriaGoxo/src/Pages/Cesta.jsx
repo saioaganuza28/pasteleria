@@ -92,7 +92,7 @@ function Cesta(props) {
     if (arrayProductos.length > 0) {
       setContenido(
         <>
-          <div className='productos'>
+          <div className='prod'>
             <Productos productos={arrayProductos} cesta={true} consultarCesta={consultarCesta} />
           </div>
           <div className='botones'>
@@ -136,7 +136,7 @@ function Cesta(props) {
     axios.post('https://goxopasteleria-default-rtdb.europe-west1.firebasedatabase.app/' + contextValue.loginData.uid + 'Pedidos' + '.json?auth=' + contextValue.loginData.idToken, pedido)
       .then(() => {
         setContenido(
-          <div class="alert alert-success" role="alert">
+          <div class="alert alert-success " role="alert">
             Pedido realizado correctamente, ¡Gracias!
             <Link to="/productos" className="nav-link">
               <Button className="cart-btn">Realizar nuevo pedido</Button>

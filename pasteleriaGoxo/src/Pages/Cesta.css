@@ -9,7 +9,7 @@
   z-index: 1040;
 }
 
-.productos {
+.prod {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -103,7 +103,7 @@
   font-weight: bold;
 }
 .floating-label input {
-  background-color: transparent !important; /* Quita cualquier fondo blanco */
-  box-shadow: none !important; /* Evita bordes y sombras adicionales */
-  border: 1px solid #ccc; /* Asegúrate de que el borde sea consistente */
+  background-color: transparent !important; 
+  box-shadow: none !important; 
+  border: 1px solid #ccc; 
 }
