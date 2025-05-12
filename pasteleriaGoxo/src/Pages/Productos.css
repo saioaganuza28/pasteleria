@@ -4,3 +4,54 @@
     justify-content: center;
     gap: 1rem;
 }
+
+.boton-filtros {
+  white-space: nowrap;
+}
+
+.panel-filtros.visible {
+  display: block;
+}
+.barra-busqueda {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  position: relative;
+  z-index: 1;
+  flex-wrap: wrap;
+}
+
+.busqueda-input {
+  max-width: 300px;
+  flex: 1;
+}
+
+.icono-filtro {
+  cursor: pointer;
+  color: #555;
+  transition: color 0.2s ease;
+}
+
+.icono-filtro:hover {
+  color: #000;
+}
+
+.filtro-wrapper {
+  position: relative;
+}
+
+.panel-filtros {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 260px;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+  z-index: 999;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+}
