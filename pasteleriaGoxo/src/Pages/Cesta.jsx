@@ -65,7 +65,11 @@ function Cesta(props) {
     }
   }, [contextValue.login]);
 
+
   useEffect(() => {
+    function hayProductoConCantidad(productos) {
+      return productos.some(producto => producto.cantidad != 0);
+    }
     setProductos(props.productos)
     let arrayProductos = []
     for (let key in productos) {
@@ -89,7 +93,7 @@ function Cesta(props) {
       return total + producto.precio * producto.cantidad;
     }, 0);
     setTotalPrecio(totalPrecio)
-    if (arrayProductos.length > 0) {
+    if (arrayProductos.length > 0 && hayProductoConCantidad(arrayProductos)) {
       setContenido(
         <>
           <div className='prod'>

@@ -3,7 +3,7 @@ import { Button, InputGroup, FormControl } from 'react-bootstrap';
 import { useEffect } from 'react';
 import '../Componentes/CantidadSelector.css'
 
-function CantidadSelector({ cantidadInicial, onCantidadChange, login }) {
+function CantidadSelector({ cantidadInicial, onCantidadChange, setEsAnadir, login }) {
   const [cantidad, setCantidad] = useState(cantidadInicial);
 
   useEffect(() => {
@@ -12,6 +12,7 @@ function CantidadSelector({ cantidadInicial, onCantidadChange, login }) {
   const incrementar = () => {
     setCantidad(prev => {
       if(login){
+        setEsAnadir(true);
         const nuevaCantidad = prev + 1;
         onCantidadChange(nuevaCantidad);
         return nuevaCantidad;
@@ -24,9 +25,11 @@ function CantidadSelector({ cantidadInicial, onCantidadChange, login }) {
   };
 
   const decrementar = () => {
+    setEsAnadir(false);
     if (cantidad > 0) {
       setCantidad(prev => {
         if(login){
+        
         const nuevaCantidad = prev - 1;
         onCantidadChange(nuevaCantidad);
         return nuevaCantidad;
