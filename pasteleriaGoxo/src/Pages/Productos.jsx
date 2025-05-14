@@ -1,10 +1,10 @@
-import { Form } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import Producto from '../Componentes/Producto';
 import { useContext, useEffect, useRef, useState } from 'react';
 import AutContext from '../../store/AutContext';
 import axios from 'axios';
 import './Productos.css';
-import { FaFilter } from 'react-icons/fa'; 
+import { FaFilter } from 'react-icons/fa';
 
 function Productos(props) {
   const contextValue = useContext(AutContext);
@@ -35,7 +35,7 @@ function Productos(props) {
     }
   }, [contextValue.loginData.uid]);
 
- 
+
   useEffect(() => {
     function handleClickOutside(event) {
       if (panelRef.current && !panelRef.current.contains(event.target)) {
@@ -60,7 +60,7 @@ function Productos(props) {
 
   return (
     <>
-      <div className='barra-busqueda'>
+      {!props.cesta && (<div className='barra-busqueda'>
         <Form.Control
           type='text'
           placeholder='Buscar productos...'
@@ -109,10 +109,12 @@ function Productos(props) {
                   ))}
                 </Form.Select>
               </Form.Group>
+              <Button className='botonMorado' onClick={() => { setPrecioMax(''); setPrecioMin(''); setValoracionMin('') }}>Borrar filtros</Button>
             </div>
           )}
         </div>
-      </div>
+      </div>)
+      }
 
       <div className='prod'>
         {productosFiltrados.map((elemento) => (
