@@ -4,7 +4,7 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import AutContext from '../../store/AutContext';
 import axios from 'axios';
 import './Productos.css';
-import { FaFilter } from 'react-icons/fa'; // Icono de filtro
+import { FaFilter } from 'react-icons/fa'; 
 
 function Productos(props) {
   const contextValue = useContext(AutContext);
@@ -35,7 +35,7 @@ function Productos(props) {
     }
   }, [contextValue.loginData.uid]);
 
-  // Cerrar panel al hacer clic fuera
+ 
   useEffect(() => {
     function handleClickOutside(event) {
       if (panelRef.current && !panelRef.current.contains(event.target)) {
