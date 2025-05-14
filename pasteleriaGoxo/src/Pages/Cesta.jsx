@@ -109,9 +109,13 @@ function Cesta(props) {
       setContenido(
         <div className='espacio'>
           Carrito vacío, ve a comprar!
-          <Link to="/productos" className="nav-link">
-            <Button className="cart-btn botonModal">Comprar</Button>
-          </Link>
+
+          <Button className="botonModal">
+            <Link to="/productos" className="nav-link">
+              Comprar
+            </Link>
+          </Button>
+
         </div>)
     }
 
